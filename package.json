@@ -6,7 +6,10 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "deploy:android": "eas build --profile development --platform android",
+    "deploy:ios": "eas build --profile development --platform ios",
+    "local": "expo start --dev-client"
   },
   "dependencies": {
     "expo": "~47.0.8",
@@ -14,7 +17,9 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-web": "~0.18.9"
+    "react-native-mmkv": "^2.5.1",
+    "react-native-web": "~0.18.9",
+    "expo-dev-client": "~2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
