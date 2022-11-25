@@ -14,19 +14,21 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.rokko.selfevolve"
+      "bundleIdentifier": "com.rokko.selfevolve",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "This app uses FaceID to loging on the app."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.rokko.selfevolve"
+      "package": "com.rokko.selfevolve",
+      "permissions": ["VIBRATE"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
