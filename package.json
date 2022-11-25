@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "deploy:android": "eas build --profile development --platform android",
     "deploy:ios": "eas build --profile development --platform ios",
-    "local": "expo start --dev-client"
+    "local": "npx expo start --dev-client"
   },
   "dependencies": {
     "expo": "~47.0.8",
