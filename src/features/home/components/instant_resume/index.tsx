@@ -13,7 +13,7 @@ interface Props {
     text: string,
     createdAt: string,
     emotionalStatus: EmotionStatus,
-    tags: Tag[]
+    tags: TagType[]
 }
 
 const InstantResume:React.FC<Props> = (props) => {

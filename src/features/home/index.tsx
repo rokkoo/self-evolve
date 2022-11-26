@@ -1,13 +1,37 @@
+import { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native"
+import AppLayoutScrollView from "../../component/AppLayoutScrollView";
+import useUserData from "../../states/zustand/hooks/useUserData";
+import DailyContainer from "./components/daily_container";
 import DailyResume from "./components/daily_resume";
 import CardView, { EmotionalStatusEnum } from "./components/instant_resume";
 import { TagsEnum } from "./components/tags_container/types";
 
 const Home = () => {
+
+    const { user } = useUserData();
+
+    const saraut = useMemo(() => {
+        if(user.name != "")
+            return `¡Hola, ${user.name}!` 
+        return '¡Hola!'
+    }, [user])
+
+    // var saraut = "¡Hola"
+    // console.log("username:" + user.name)
+
+    // if(user.name != ""){
+    //     saraut = useMemo(() => {
+    //         return `${saraut}, ${user.name}!` 
+    //     }, [user])
+    // }else{
+    //     saraut = saraut + "!"
+    // }
+
     return(
         <View style={styles.container}>
             <View style={styles.top}>
-                <Text>¡Hola!</Text>
+                <Text>{saraut}</Text>
                 <View style={styles.verticleLine}></View>
                 <Text style={styles.year}>2022</Text>
             </View>
@@ -16,22 +40,7 @@ const Home = () => {
             </View>
             <View style={styles.bottom}>
                 <View style={styles.daily}>
-                    
-                    <DailyResume />
-
-                    <CardView 
-                        text="Me fui a jugar al futbol con mi primo y me pelee con el."
-                        createdAt="10:04 AM"
-                        emotionalStatus={EmotionalStatusEnum.HAPPY}
-                        tags={[TagsEnum.DOSPORT, TagsEnum.TAKEANAP]}
-                    />
-
-                    <CardView 
-                        text="He ido a comprar el pan."
-                        createdAt="17:56 PM"
-                        emotionalStatus={EmotionalStatusEnum.HAPPY}
-                        tags={[TagsEnum.DOSPORT, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP]}
-                    />
+                    <DailyContainer/>
                 </View>
             </View>
         </View>
