@@ -1,99 +1,62 @@
-import { useCallback, useEffect } from "react";
-import { Button, Text, TextInput, View } from "react-native";
-import { hasHardwareAsync } from "expo-local-authentication";
-import { StyleSheet } from "react-native";
+import { useCallback, useState } from "react";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import useUserData from "../../states/zustand/hooks/useUserData";
+import { styles } from "./styles";
 import Header from "../../../components/header/Header";
 import TextOnboarding from "../../../components/onboarding/TextOnboarding";
+import useOnboarding from "./hooks/useOnboarding";
+import useOnboardingActions from "./hooks/useOnboardingActions";
+import AppLayoutScrollView from "../../component/AppLayoutScrollView";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const Onboarding = () => {
-  const { saveUserData, user } = useUserData();
-
-  const handleSave = useCallback(() => {
-    const user = { name: "alfonso" };
-    saveUserData(user);
-  }, []);
-
-  useEffect(() => {
-    const init = async () => {
-      try {
-        const compatible = await hasHardwareAsync();
-
-        console.log({ compatible });
-      } catch (error) {
-        console.log({ error });
-      }
-    };
-
-    init();
-  }, []);
+  const { handleInputChange, username } = useOnboarding();
+  const { handleNextPress } = useOnboardingActions();
 
   return (
-    <View style={styles.container}>
-        <View style={styles.upside_container}>
-          <Header></Header>
-          <TextOnboarding text="Bienvenido,
-          Esta aplicación te servirá para adquirir consciencia sobre tus emociones en tu día a día. Con ella podrás tener un calendario con el histórico de tu estado emocional, podrás expresar como te sientes, decir lo que has hecho en el día y ver diferentes gráficas para analizar tus estados de animo.  "/>
-          <Text style={{margin:20}}>Para una experiencia personalizada, puedes introducir tu nombre:</Text>
+    <AppLayoutScrollView>
+      <View style={styles.upside_container}>
+        <Header />
+        <TextOnboarding
+          text="Bienvenido,
+          Esta aplicación te servirá para adquirir consciencia sobre tus emociones en tu día a día. Con ella podrás tener un calendario con el histórico de tu estado emocional, podrás expresar como te sientes, decir lo que has hecho en el día y ver diferentes gráficas para analizar tus estados de animo.  "
+        />
+        <Text style={{ margin: 20 }}>
+          Para una experiencia personalizada, puedes introducir tu nombre:
+        </Text>
+        <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            value={"Nombre..."}
+            value={username}
+            onChangeText={handleInputChange}
+            placeholder="Name"
+            maxLength={12}
+            scrollEnabled={false}
           />
         </View>
-        <View style={styles.bottom_container}>
-          
-          <View>
-              <Text>SALTAR</Text>
-            </View>
-
-          <View style={styles.verticleLine}></View>
-
-          <View>
-            <Text>SIGUIENTE</Text>
-          </View>
-            
-        </View>
       </View>
+      <View style={styles.bottom_container}>
+        <View>
+          <Text>SALTAR</Text>
+        </View>
+
+        <View style={styles.verticleLine}></View>
+
+        <TouchableOpacity onPress={() => handleNextPress(username)}>
+          <Text>SIGUIENTE</Text>
+        </TouchableOpacity>
+      </View>
+    </AppLayoutScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    margin: 30,
-
-  },
-  upside_container: {
-    flex: 1,
-    fontSize: 16,
-    alignContent: 'center',
-    justifyContent: 'center',
-  },
-
-  bottom_container: {
-    padding:10,
-    paddingTop: 70,
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    width: '100%',
-  },
-  
-  input: {
-    borderColor: "gray",
-    borderWidth: 0.8,
-    margin:20,
-    borderRadius: 10,
-    padding: 10,
-  },
-  verticleLine: {
-    height: '100%',
-    width: 1,
-    backgroundColor: '#909090',
-  }
-});
 
 export default Onboarding;

@@ -1,8 +1,5 @@
-import { View } from "react-native";
-import Home from "./src/features/home";
+import Onboarding from "./src/features/onboarding";
 
-export default function App() { 
-    return (  
-      <Home></Home>
-    );
-  };
+export default function App() {
+  return <Onboarding />;
+}
