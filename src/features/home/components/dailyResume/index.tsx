@@ -1,4 +1,5 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+import constants from "../../../../constants";
 
 const DailyResume = () => {
     return (
@@ -22,7 +23,9 @@ const styles = StyleSheet.create({
     emotionalStatus: {
         width: 80,
         height: 80,
-        backgroundColor: "#F95B5B"
+        borderRadius:20,
+        backgroundColor: constants.LightTheme.last,
+        margin: 5,
     }
 })
 

@@ -1,11 +1,11 @@
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import DailyResume from "../dailyResume";
 import InstantResume, { EmotionalStatusEnum } from "../instantResume";
 import { TagsEnum } from "../tagsContainer/types";
 
 const DailyContainer = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <DailyResume />
 
       <InstantResume
@@ -22,15 +22,25 @@ const DailyContainer = () => {
         tags={[
           TagsEnum.DOSPORT,
           TagsEnum.TAKEANAP,
+          TagsEnum.DOSPORT,
           TagsEnum.TAKEANAP,
+          TagsEnum.DOSPORT,
           TagsEnum.TAKEANAP,
-          TagsEnum.TAKEANAP,
-          TagsEnum.TAKEANAP,
-          TagsEnum.TAKEANAP,
+          
         ]}
       />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    width: '100%',
+  }
+})
 
 export default DailyContainer;
