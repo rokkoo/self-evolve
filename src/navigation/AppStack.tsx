@@ -25,7 +25,11 @@ function AppStack() {
         component={Onboarding}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name={FlowEnum.Home} component={Home} />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={FlowEnum.Home}
+        component={Home}
+      />
     </Stack.Navigator>
   );
 }
