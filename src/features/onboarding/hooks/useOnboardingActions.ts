@@ -4,24 +4,25 @@ import useUserData from "../../../states/zustand/hooks/useUserData";
 import useAppNavigation from "../../../navigation/hooks/useAppNavigation";
 
 const useOnboardingActions = () => {
-  const { saveUserData, user } = useUserData();
+  const { saveUserData, user, onboardingSeen } = useUserData();
   const { navigation } = useAppNavigation();
+
+  const handleAction = useCallback(() => {
+    onboardingSeen();
+    navigation.navigate(FlowEnum.Home);
+  }, []);
 
   const handleNextPress = useCallback((name: string) => {
     saveUserData({ name });
     console.log("name saved");
-    navigation.navigate(FlowEnum.Home);
-  }, []);
-
-  const handleDismiss = useCallback(() => {
-    navigation.navigate(FlowEnum.Home);
+    handleAction();
   }, []);
 
   console.log({ user });
 
   return {
     handleNextPress,
-    handleDismiss,
+    handleDismiss: handleAction,
   };
 };
 
