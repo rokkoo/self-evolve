@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { TagType } from "../tags_container/types";
+import { TagType } from "../tagsContainer/types";
 
 interface Props {
     type: TagType,

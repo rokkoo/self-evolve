@@ -1,7 +1,7 @@
 import { View } from "react-native";
-import DailyResume from "../daily_resume";
-import InstantResume, { EmotionalStatusEnum } from "../instant_resume";
-import { TagsEnum } from "../tags_container/types";
+import DailyResume from "../dailyResume";
+import InstantResume, { EmotionalStatusEnum } from "../instantResume";
+import { TagsEnum } from "../tagsContainer/types";
 
 const DailyContainer = () => {
   return (
