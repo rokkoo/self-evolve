@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import useUserData from "../../states/zustand/hooks/useUserData";
 import DailyContainer from "./components/dailyContainer";
+import HomeCalendar from "./components/homeCalendar";
 import { styles } from "./styles";
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
       </View>
       <View style={styles.calendar}></View>
       <AppLayoutScrollView>
+        <HomeCalendar />
         <DailyContainer />
       </AppLayoutScrollView>
     </View>
