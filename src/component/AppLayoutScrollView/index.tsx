@@ -2,22 +2,22 @@ import { ReactNode } from "react";
 import {
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   ScrollView,
-  StyleSheet,
-  View,
+  StyleProp,
+  ViewStyle,
 } from "react-native";
 
 interface Props {
   children: ReactNode;
+  style?: StyleProp<ViewStyle>;
 }
-const AppLayoutScrollView = ({ children }: Props) => {
+const AppLayoutScrollView = ({ children, style }: Props) => {
   return (
     <ScrollView
       nestedScrollEnabled
       showsVerticalScrollIndicator={false}
       keyboardShouldPersistTaps={"handled"}
-      contentContainerStyle={[styles.container]}
+      contentContainerStyle={[style]}
     >
       <KeyboardAvoidingView
         style={{ flex: 1 }}
@@ -28,14 +28,5 @@ const AppLayoutScrollView = ({ children }: Props) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 20,
-    paddingHorizontal: 32,
-    // backgroundColor: "purple",
-  },
-});
 
 export default AppLayoutScrollView;

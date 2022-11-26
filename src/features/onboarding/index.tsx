@@ -21,8 +21,9 @@ const Onboarding = () => {
   const { handleInputChange, username } = useOnboarding();
   const { handleNextPress, handleDismiss } = useOnboardingActions();
 
+  // FIX MARGINS
   return (
-    <AppLayoutScrollView>
+    <AppLayoutScrollView style={{ flex: 1 }}>
       <View style={styles.upside_container}>
         <Header />
         <TextOnboarding
