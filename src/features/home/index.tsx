@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from "react-native"
 import DailyResume from "./components/daily_resume";
+import CardView, { EmotionalStatusEnum } from "./components/instant_resume";
+import { TagsEnum } from "./components/tags_container/types";
 
 const Home = () => {
     return(
@@ -14,7 +16,22 @@ const Home = () => {
             </View>
             <View style={styles.bottom}>
                 <View style={styles.daily}>
-                    <DailyResume/>
+                    
+                    <DailyResume />
+
+                    <CardView 
+                        text="Me fui a jugar al futbol con mi primo y me pelee con el."
+                        createdAt="10:04 AM"
+                        emotionalStatus={EmotionalStatusEnum.HAPPY}
+                        tags={[TagsEnum.DOSPORT, TagsEnum.TAKEANAP]}
+                    />
+
+                    <CardView 
+                        text="He ido a comprar el pan."
+                        createdAt="17:56 PM"
+                        emotionalStatus={EmotionalStatusEnum.HAPPY}
+                        tags={[TagsEnum.DOSPORT, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP, TagsEnum.TAKEANAP]}
+                    />
                 </View>
             </View>
         </View>
@@ -57,7 +74,9 @@ const styles = StyleSheet.create({
         fontSize: 34,
     },
     daily: {
-
+        flexDirection: 'column',
+        alignItems: 'center',
+        
     }
 })
 
