@@ -4,6 +4,7 @@ import Home from "../features/home";
 import Onboarding from "../features/onboarding";
 import useUserData from "../states/zustand/hooks/useUserData";
 import { FlowEnum } from "./types";
+import DailyResumePost from "../features/DailyResumePost/inde";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +13,7 @@ function AppStack() {
 
   const initialRouteName = useMemo(() => {
     if (onboardingPasses) {
-      return FlowEnum.Onboarding;
+      return FlowEnum.Home;
     }
 
     FlowEnum.Onboarding;
@@ -29,6 +30,11 @@ function AppStack() {
         options={{ headerShown: false }}
         name={FlowEnum.Home}
         component={Home}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={FlowEnum.DailyResumePost}
+        component={DailyResumePost}
       />
     </Stack.Navigator>
   );
