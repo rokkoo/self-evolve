@@ -1,22 +1,10 @@
-import { useCallback, useState } from "react";
-import {
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-
+import { Text, TextInput, View } from "react-native";
 import { styles } from "./styles";
-import Header from "../../../components/header/Header";
-import TextOnboarding from "../../../components/onboarding/TextOnboarding";
+import Header from "./components/header/Header";
 import useOnboarding from "./hooks/useOnboarding";
-import useOnboardingActions from "./hooks/useOnboardingActions";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import BottomButtons from "./components/bottomButtons";
+import TextOnboarding from "./components/TextOnboarding";
 
 const Onboarding = () => {
   const { handleInputChange, username } = useOnboarding();
