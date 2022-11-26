@@ -1,5 +1,5 @@
-import Onboarding from "./src/features/onboarding";
+import AppNavigationContainer from "./src/navigation";
 
 export default function App() {
-  return <Onboarding />;
+  return <AppNavigationContainer />;
 }
