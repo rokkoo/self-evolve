@@ -16,11 +16,10 @@ import TextOnboarding from "../../../components/onboarding/TextOnboarding";
 import useOnboarding from "./hooks/useOnboarding";
 import useOnboardingActions from "./hooks/useOnboardingActions";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const Onboarding = () => {
   const { handleInputChange, username } = useOnboarding();
-  const { handleNextPress } = useOnboardingActions();
+  const { handleNextPress, handleDismiss } = useOnboardingActions();
 
   return (
     <AppLayoutScrollView>
@@ -45,9 +44,9 @@ const Onboarding = () => {
         </View>
       </View>
       <View style={styles.bottom_container}>
-        <View>
+        <TouchableOpacity onPress={handleDismiss}>
           <Text>SALTAR</Text>
-        </View>
+        </TouchableOpacity>
 
         <View style={styles.verticleLine}></View>
 
