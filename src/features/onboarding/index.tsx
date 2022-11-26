@@ -16,15 +16,15 @@ import TextOnboarding from "../../../components/onboarding/TextOnboarding";
 import useOnboarding from "./hooks/useOnboarding";
 import useOnboardingActions from "./hooks/useOnboardingActions";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
+import BottomButtons from "./components/bottomButtons";
 
 const Onboarding = () => {
   const { handleInputChange, username } = useOnboarding();
-  const { handleNextPress, handleDismiss } = useOnboardingActions();
 
   // FIX MARGINS
   return (
     <AppLayoutScrollView style={{ flex: 1 }}>
-      <View style={styles.upside_container}>
+      <View style={styles.upsideContainer}>
         <Header />
         <TextOnboarding
           text="Bienvenido,
@@ -44,17 +44,7 @@ const Onboarding = () => {
           />
         </View>
       </View>
-      <View style={styles.bottom_container}>
-        <TouchableOpacity onPress={handleDismiss}>
-          <Text>SALTAR</Text>
-        </TouchableOpacity>
-
-        <View style={styles.verticleLine}></View>
-
-        <TouchableOpacity onPress={() => handleNextPress(username)}>
-          <Text>SIGUIENTE</Text>
-        </TouchableOpacity>
-      </View>
+      <BottomButtons username={username}></BottomButtons>
     </AppLayoutScrollView>
   );
 };
