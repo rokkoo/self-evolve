@@ -6,6 +6,8 @@ import { TagsEnum } from "../tagsContainer/types";
 const DailyContainer = () => {
   return (
     <View style={styles.container}>
+      
+
       <DailyResume />
 
       <InstantResume

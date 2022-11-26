@@ -12,7 +12,7 @@ function AppStack() {
 
   const initialRouteName = useMemo(() => {
     if (onboardingPasses) {
-      return FlowEnum.Home;
+      return FlowEnum.Onboarding;
     }
 
     FlowEnum.Onboarding;

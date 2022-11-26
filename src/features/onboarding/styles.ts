@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    margin: 30,
+    flex:1,
   },
   upsideContainer: {
     flex: 1,
@@ -29,4 +28,7 @@ export const styles = StyleSheet.create({
     marginTop: 8,
     marginLeft: 8,
   },
+  background:{
+    
+  }
 });

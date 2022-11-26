@@ -29,8 +29,11 @@ export default function HomeCalendar() {
           borderWidth: 1,
           borderHighlightColor: "white",
         }}
-        style={{ height: 100, paddingTop: 20, paddingBottom: 10 }}
+        style={{ height: '100%', paddingVertical: 5, paddingBottom:20
+      
+      }}
         calendarHeaderStyle={{ color: "white" }}
+        headerText = " "
         calendarColor={"#7743CE"}
         dateNumberStyle={{ color: "white" }}
         dateNameStyle={{ color: "white" }}
