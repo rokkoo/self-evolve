@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import constants from "../../../../constants";
 
 export const styles = StyleSheet.create({
     row: {
@@ -9,11 +10,10 @@ export const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         flexDirection: 'column',
-        backgroundColor: '#FFDCDC',
-        borderColor: '#DFDFDF',
-        borderWidth: 3,
+        backgroundColor: constants.LightTheme.secondary,
+        borderColor: constants.LightTheme.terciary,
         borderRadius: 20,
-        margin: 20,
+        marginVertical: 10,
         width: "90%",
     },
     left: {
@@ -22,29 +22,32 @@ export const styles = StyleSheet.create({
     right: {
         alignItems: 'center',
         width: "30%",
-        backgroundColor: '#ffff'
     },
     tagsbox: {
         width: "90%",
-        marginBottom: 20,
-        backgroundColor: '#CFFFCD',
-        borderColor: "#CDCDCD",
-        borderWidth: 3,
-        borderRadius: 20,
+        margin: 10,
+        backgroundColor: '#D9CACA',
+        borderColor: constants.LightTheme.last,
+        padding: 5,
+        borderRadius: 10,
         display: 'flex',
-        
     },
     text: {
         fontSize: 16,
-        margin: 20,
+        marginHorizontal: 20,
+        marginVertical:10,
 
     },
     hour: {
         fontSize: 14,
+        marginHorizontal: 20,
+        marginTop: 10,
     },
     emotionalStatus: {
         width: 80,
         height: 80,
-        backgroundColor: "#F95B5B"
+        borderRadius:20,
+        backgroundColor: constants.LightTheme.last,
+        margin: 5,
     }
 })

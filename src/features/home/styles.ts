@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import constants from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: "center",
-      backgroundColor: "#fbfae1",
+      backgroundColor: constants.LightTheme.primary,
     },
     top: {
       height: "10%",
@@ -18,12 +19,12 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       alignContent: "center",
       justifyContent: "center",
-      backgroundColor: "#04dead",
+      backgroundColor: constants.LightTheme.secondary,
     },
     verticleLine: {
-      height: "100%",
+      height: "80%",
       width: 1,
-      backgroundColor: "#909090",
+      backgroundColor: constants.LightTheme.last,
     },
     year: {
       fontSize: 34,

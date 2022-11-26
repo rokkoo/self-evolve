@@ -22,7 +22,7 @@ const InstantResume:React.FC<Props> = (props) => {
         <View style={styles.container}>
             <View style={styles.row}>
                 <View style={styles.left}>
-                    <Text style={styles.text}>{props.createdAt}</Text>
+                    <Text style={styles.hour}>{props.createdAt}</Text>
                     <Text style={styles.text}>{props.text}</Text>
                 </View>
                 <View style={styles.right}>
