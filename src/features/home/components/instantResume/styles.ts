@@ -20,6 +20,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
     marginVertical: 10,
     marginHorizontal: 20,
+    elevation: 4,
   },
   textAndHourContainer: {
     flex: 1,

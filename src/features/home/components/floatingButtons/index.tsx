@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     right: 20,
     alignItems: "center",
     justifyContent: "center",
+    elevation: 4,
   },
   dailyButton: {
     width: 60,
@@ -66,6 +67,7 @@ const styles = StyleSheet.create({
     right: 20,
     alignItems: "center",
     justifyContent: "center",
+    elevation: 4,
   },
   icon: {
     width: 30,
