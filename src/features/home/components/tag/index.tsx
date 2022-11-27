@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     borderColor: constants.LightTheme.secondary,
     borderWidth: 1,
     opacity: 0.3,
+    elevation: 4,
   },
   selectedContainer: {
     opacity: 1,

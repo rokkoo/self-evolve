@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   },
   text: {
     paddingHorizontal: 10,
+    fontWeight: "bold",
   },
   statusContainer: {
     flex: 1,
@@ -64,18 +65,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     padding: 8,
     paddingBottom: 10,
-    margin: 3,
+    margin: 4,
   },
   selectedContainer: {
     backgroundColor: constants.LightTheme.terciary,
-    borderRadius: 20,
-    padding: 8,
-    paddingBottom: 10,
-    margin: 3,
+    borderRadius: 16,
+    elevation: 4,
   },
   selectedText: {
-    fontWeight: "bold",
-    color: constants.LightTheme.primary,
     paddingHorizontal: 10,
   },
 });
