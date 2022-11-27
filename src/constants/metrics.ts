@@ -8,6 +8,7 @@ export const FontSize = {
   s: 11,
   m: 12,
   l: 14,
+  xxl: 24,
   xl: 32,
 };
 
