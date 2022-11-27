@@ -1,7 +1,6 @@
 import React from "react";
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
+import { StyleProp, StyleSheet, Text, View, ViewProps, ViewStyle } from "react-native";
 import constants from "../../constants";
-
 
 const SaveButton = () => {
   return (
@@ -17,6 +16,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         paddingVertical: 14,
         paddingHorizontal: 10,
+        width: '100%'
     },
     buttonText: {
         color: constants.LightTheme.primary,
