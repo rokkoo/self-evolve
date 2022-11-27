@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 import ReactNativeCalendarStrip from "react-native-calendar-strip";
 import moment from "moment";
@@ -7,6 +8,16 @@ import constants from "../../../../constants";
 
 export default function HomeCalendar() {
   const { datesWhitelist, handleDateChange } = useHomeCalendar();
+  const { homeDate } = useHomeState();
+
+  const headerText = useMemo(() => {
+    if (homeDate) {
+      const date = moment(homeDate).format("YYYY");
+      return date;
+    }
+
+    return moment().format("YYYY");
+  }, [homeDate]);
 
   return (
     <View>
@@ -21,7 +32,7 @@ export default function HomeCalendar() {
         }}
         style={styles.calendar}
         calendarHeaderStyle={styles.calendarHeader}
-        headerText="2022"
+        headerText={headerText}
         calendarColor={constants.LightTheme.last}
         dateNumberStyle={styles.dateNumber}
         dateNameStyle={styles.dateName}
@@ -40,25 +51,25 @@ export default function HomeCalendar() {
 }
 
 const styles = StyleSheet.create({
-  calendar: { 
+  calendar: {
     height: "100%",
     paddingVertical: 5,
-    paddingBottom: 20 
+    paddingBottom: 20,
   },
-  dateNumber:{
-    color: 'white',
+  dateNumber: {
+    color: "white",
     opacity: 1,
   },
   dateName: {
-    color: 'white',
+    color: "white",
     opacity: 1,
   },
-  calendarHeader:{
-    color: 'white',
+  calendarHeader: {
+    color: "white",
     paddingBottom: 8,
   },
   highlightDateNumber: {
-    color: 'white',
+    color: "white",
   },
   disabledDateNumber: {
     color: constants.LightTheme.secondary,
@@ -66,10 +77,9 @@ const styles = StyleSheet.create({
   },
   highlightDateName: {
     color: constants.LightTheme.terciary,
-
   },
   disabledDateName: {
     color: constants.LightTheme.terciary,
     opacity: 0.7,
-  }
-})
+  },
+});
