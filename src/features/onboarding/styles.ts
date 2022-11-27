@@ -11,7 +11,13 @@ export const styles = StyleSheet.create({
     // backgroundColor: "red",
     // height: "100%",
   },
+  downsideContainer:{
+    flex:1, 
+    alignItems: "center",
+    justifyContent: "center"
+  },
   inputContainer: {
+    width: '100%',
     // margin: 20,
   },
   input: {
@@ -21,7 +27,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 0.8,
     borderRadius: 10,
     alignSelf: "center",
-    width: "60%",
+    width: "80%",
   },
   inputError: {
     color: "red",

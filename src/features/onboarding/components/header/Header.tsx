@@ -3,13 +3,20 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 
 const Header = () => {
     return (
-        <View>
-            <Text style={styles.header}>Self Evolve</Text>
+        <View style={styles.container}>
+            <Text style={styles.header}>Self</Text>
+            <Text style={styles.header}>Evolve</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    container: {
+        alignItems: 'flex-start',
+        paddingVertical: 30,
+        paddingTop: 70,
+        flex:1,
+    },
     header: {
         fontSize: 62,
         margin: 10,

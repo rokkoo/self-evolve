@@ -11,14 +11,13 @@ const TextOnboarding: React.FC<Props> = ({ text }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.first}>¡{firstText}!</Text>
-      <Text style={styles.second}>{secondText}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0,
+    paddingTop:0,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 20,

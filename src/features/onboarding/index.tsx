@@ -1,4 +1,4 @@
-import { Text, TextInput, View } from "react-native";
+import { ImageBackground, Text, TextInput, View } from "react-native";
 import { styles } from "./styles";
 import Header from "./components/header/Header";
 import useOnboarding from "./hooks/useOnboarding";
@@ -13,21 +13,20 @@ const Onboarding = () => {
   const { handleInputChange, username } = useOnboarding();
 
   return (
-    <LinearGradient
-      colors={[constants.LightTheme.secondary, constants.LightTheme.last]}
-      style={styles.container}
-      start={{ x: 0.12, y: 0 }}
-      end={{ x: 0.2323, y: 1 }}
-    >
+    <ImageBackground source={require("../../../assets/onBoardingBackground.png")} resizeMode="cover" style={{
+      flex: 1,
+      justifyContent: "center"
+    }}>
       <AppLayout>
         <AppLayoutScrollView style={{ flex: 1 }}>
           <View style={styles.upsideContainer}>
             <Header />
+            <View style={styles.downsideContainer}>
             <TextOnboarding
               text="Bienvenido,
             Esta aplicación te servirá para adquirir consciencia sobre tus emociones en tu día a día. Con ella podrás tener un calendario con el histórico de tu estado emocional, podrás expresar como te sientes, decir lo que has hecho en el día y ver diferentes gráficas para analizar tus estados de animo.  "
             />
-            <Text style={{ margin: 20 }}>
+            <Text>
               Para una experiencia personalizada, puedes introducir tu nombre:
             </Text>
             <View style={styles.inputContainer}>
@@ -40,11 +39,13 @@ const Onboarding = () => {
                 scrollEnabled={false}
               />
             </View>
+            </View>
+            
           </View>
           <BottomButtons username={username}></BottomButtons>
         </AppLayoutScrollView>
       </AppLayout>
-    </LinearGradient>
+    </ImageBackground>
   );
 };
 
