@@ -10,3 +10,8 @@ export const FontSize = {
   l: 14,
   xl: 32,
 };
+
+export enum FontFamilys {
+  REGULAR = "Author-Regular",
+  BOLD = "Author-Bold",
+}

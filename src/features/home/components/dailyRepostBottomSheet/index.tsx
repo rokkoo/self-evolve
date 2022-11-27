@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useRef } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
+import AppText from "../../../../component/AppText";
 
 const DailyRepostBottomSheet = () => {
   // ref
@@ -24,7 +25,7 @@ const DailyRepostBottomSheet = () => {
         onChange={handleSheetChanges}
       >
         <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
+          <AppText>Awesome 🎉</AppText>
         </View>
       </BottomSheet>
     </View>

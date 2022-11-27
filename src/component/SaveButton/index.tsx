@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import Toast from "react-native-toast-message";
 import { useRoute, RouteProp } from "@react-navigation/native";
 
@@ -9,6 +9,7 @@ import useDailyResumeState from "../../features/DailyResumePost/state/useDailyRe
 import useAppNavigation from "../../navigation/hooks/useAppNavigation";
 import { FlowEnum, StackParamList } from "../../navigation/types";
 import useUserResumePost from "../../states/zustand/hooks/useUserResumePost";
+import AppText from "../AppText";
 
 const SaveButton = () => {
   const { emotion, tags, note, resetState } = useDailyResumeState();
@@ -33,7 +34,7 @@ const SaveButton = () => {
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleSavePress}>
-      <Text style={styles.buttonText}>GUARDAR</Text>
+      <AppText style={styles.buttonText}>GUARDAR</AppText>
     </TouchableOpacity>
   );
 };

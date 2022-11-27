@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { useMemo } from "react";
 import { EmotionalStatusEnum } from "../../../../states/zustand/types";
 import { iconSource } from "../../../../lib/emotionsLib";
+import AppText from "../../../../component/AppText";
 
 interface Props {
   emotionalStatus: EmotionalStatusEnum;
@@ -14,7 +15,7 @@ const DailyResume: React.FC<Props> = ({ emotionalStatus }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}> ESTE DÍA ESTABAS: </Text>
+      <AppText style={styles.text}> ESTE DÍA ESTABAS: </AppText>
       <Image
         style={styles.emotionalStatus}
         source={source}

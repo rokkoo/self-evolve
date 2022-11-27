@@ -1,6 +1,7 @@
 import { useCallback } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import AppText from "../../../../component/AppText";
 import useAppNavigation from "../../../../navigation/hooks/useAppNavigation";
 import { FlowEnum } from "../../../../navigation/types";
 import { PostTypeEnum } from "../../../../states/zustand/types";
@@ -23,10 +24,10 @@ const InsertDailyButton = () => {
   return (
     <View>
       <TouchableOpacity style={styles.container} onPress={handlePress}>
-        <Text style={styles.text}>Resume</Text>
+        <AppText style={styles.text}>Resume</AppText>
       </TouchableOpacity>
       <TouchableOpacity style={styles.container} onPress={handleInstaPress}>
-        <Text style={styles.text}>Instant</Text>
+        <AppText style={styles.text}>Instant</AppText>
       </TouchableOpacity>
     </View>
   );

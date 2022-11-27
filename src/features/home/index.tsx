@@ -4,7 +4,6 @@ import DailyContainer from "./components/dailyContainer";
 import FloatingButtons from "./components/floatingButtons";
 import Header from "./components/header";
 import HomeCalendar from "./components/homeCalendar";
-import InsertDailyButton from "./components/insertDailyButton";
 import { styles } from "./styles";
 
 const Home = () => {

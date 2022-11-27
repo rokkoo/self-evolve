@@ -1,4 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import AppText from "../../../../component/AppText";
+import { FontSize } from "../../../../constants/metrics";
 import useOnboarding from "../../hooks/useOnboarding";
 import useOnboardingActions from "../../hooks/useOnboardingActions";
 
@@ -12,13 +14,17 @@ const BottomButtons: React.FC<Props> = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleDismiss}>
-        <Text>SALTAR</Text>
+        <AppText bold fontSize={FontSize.l}>
+          SALTAR
+        </AppText>
       </TouchableOpacity>
 
       <View style={styles.verticleLine}></View>
 
       <TouchableOpacity onPress={() => handleNextPress(props.username.trim())}>
-        <Text>SIGUIENTE</Text>
+        <AppText bold fontSize={FontSize.l}>
+          SIGUIENTE
+        </AppText>
       </TouchableOpacity>
     </View>
   );
