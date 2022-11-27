@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
+import { useRoute, RouteProp } from "@react-navigation/native";
 import { TextInput } from "react-native-gesture-handler";
 import AppHeader from "../../component/AppHeader";
 import AppLayout from "../../component/AppLayout";
@@ -7,13 +8,15 @@ import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import AppText from "../../component/AppText";
 import SaveButton from "../../component/SaveButton";
 import { FontSize } from "../../constants/metrics";
-import { TagsEnum, TagType } from "../../states/zustand/types";
+import { PostTypeEnum, TagsEnum, TagType } from "../../states/zustand/types";
 import TagsContainer from "../home/components/tagsContainer";
 import EmotionalStateSelector from "./components/emotionalStateSelector";
 import useDailyResumeState from "./state/useDailyResumeState";
+import { FlowEnum, StackParamList } from "../../navigation/types";
 
 const DailyResumePost = () => {
   const { tags, toggleTag, addNote, note } = useDailyResumeState();
+  const route = useRoute<RouteProp<StackParamList, FlowEnum.DailyResumePost>>();
 
   const onTagPress = useCallback((tag: TagType) => {
     toggleTag(tag);
@@ -38,7 +41,11 @@ const DailyResumePost = () => {
           <EmotionalStateSelector />
           <AppText
             style={styles.text}
-            children={"Durante el día:"}
+            children={
+              route.params.type === PostTypeEnum.RESUME
+                ? "Durante el día:"
+                : "Que has hecho ahora:"
+            }
             fontSize={FontSize.l}
           />
           <TagsContainer
