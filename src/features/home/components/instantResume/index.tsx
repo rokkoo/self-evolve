@@ -58,9 +58,6 @@ const InstantResume: React.FC<Props> = (props) => {
           <View style={styles.emotionalStatus}></View>
         </View>
       </View>
-      <View style={styles.tagsbox}>
-        <TagsContainer tags={props.tags} />
-      </View>
     </View>
   );
 };
