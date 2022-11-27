@@ -12,7 +12,7 @@ interface Props {
 
 const AppText: React.FC<Props> = ({
   children,
-  fontSize = 10,
+  fontSize = FontSize.l,
   style,
   ...props
 }) => {
