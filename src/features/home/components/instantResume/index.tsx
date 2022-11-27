@@ -41,7 +41,7 @@ const InstantResume: React.FC<Props> = (props) => {
         />
       </View>
       <View style={styles.tagsContainer}>
-        <TagsContainer tags={props.tags} />
+        <TagsContainer tags={props.tags} selectAllTag />
       </View>
     </View>
   );

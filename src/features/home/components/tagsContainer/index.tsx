@@ -8,9 +8,15 @@ interface Props {
   tags: TagType[];
   onTagPress?: (tag: TagType) => void;
   selectedTags?: TagType[];
+  selectAllTag?: boolean;
 }
 
-const TagsContainer: React.FC<Props> = ({ tags, onTagPress, selectedTags }) => {
+const TagsContainer: React.FC<Props> = ({
+  tags,
+  onTagPress,
+  selectedTags,
+  selectAllTag,
+}) => {
   const isSelected = useCallback(
     (type: TagType) => {
       if (!selectedTags) return false;
@@ -28,12 +34,12 @@ const TagsContainer: React.FC<Props> = ({ tags, onTagPress, selectedTags }) => {
         <Tag
           key={index}
           type={item}
-          isSelected={isSelected(item)}
+          isSelected={selectAllTag || isSelected(item)}
           onPress={onTagPress}
         />
       );
     });
-  }, [tags, isSelected, onTagPress]);
+  }, [tags, isSelected, onTagPress, selectAllTag]);
 
   return <View style={styles.container}>{itemList}</View>;
 };
