@@ -18,7 +18,9 @@ const Tag: React.FC<Props> = ({ type, isSelected, onPress }) => {
       style={[styles.container, isSelected && styles.selectedContainer]}
       onPress={() => onPress?.(type)}
     >
-      <AppText fontSize={FontSize.s}>{type}</AppText>
+      <AppText 
+        style={[styles.text, isSelected && styles.selectedText]}
+        fontSize={FontSize.s}>{type}</AppText>
     </TouchableOpacity>
   );
 };
@@ -29,14 +31,23 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     paddingHorizontal: 10,
     paddingVertical: 3,
-    paddingRight: 20,
     marginVertical: 5,
     borderRadius: 5,
     borderColor: constants.LightTheme.secondaryBorder,
   },
   selectedContainer: {
-    backgroundColor: "red",
+    backgroundColor: constants.LightTheme.terciary,
+    borderRadius: 6,
+    margin: 3,
   },
+  text: {
+    opacity: 0.4,
+  },
+  selectedText: {
+    fontWeight: 'bold',
+    opacity: 1,
+    color: constants.LightTheme.secondary,
+  }
 });
 
 export default React.memo(Tag);

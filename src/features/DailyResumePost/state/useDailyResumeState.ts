@@ -1,12 +1,12 @@
 import create from "zustand";
-import { EmotionStatus, TagType } from "../../../states/zustand/types";
+import { EmotionType, TagType } from "../../../states/zustand/types";
 
 interface DailyResumeState {
-  emotion: EmotionStatus | null;
+  emotion: EmotionType | null;
   tags: TagType[];
   note: string | null;
 
-  addEmotion: (emotion: EmotionStatus) => void;
+  addEmotion: (emotion: EmotionType) => void;
   toggleTag: (tag: TagType) => void;
   addNote: (note: string) => void;
 }

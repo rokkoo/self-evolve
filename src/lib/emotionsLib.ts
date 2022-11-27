@@ -15,3 +15,19 @@ export const iconSource = (emotionalStatus: EmotionStatus) => {
     
         return undefined;
       }
+
+export const emotionText = (emotionalStatus: EmotionStatus) => {
+        if (emotionalStatus === EmotionalStatusEnum.HAPPY) {
+          return "Bien";
+        }
+    
+        if (emotionalStatus === EmotionalStatusEnum.SAD) {
+          return "Mal";
+        }
+    
+        if (emotionalStatus === EmotionalStatusEnum.NEUTRAL) {
+          return "Regular";
+        }
+    
+        return undefined;
+      }

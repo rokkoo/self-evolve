@@ -8,8 +8,7 @@ export enum EmotionalStatusEnum {
   NEUTRAL = "neutral",
 }
 
-export type EmotionStatus =
-  typeof EmotionalStatusEnum[keyof typeof EmotionalStatusEnum];
+export type EmotionType = typeof EmotionalStatusEnum[keyof typeof EmotionalStatusEnum];
 
 export enum TagsEnum {
   DOSPORT = "dosport",
