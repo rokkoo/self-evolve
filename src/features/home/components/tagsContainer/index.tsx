@@ -1,16 +1,26 @@
-import { StyleProp, StyleSheet, View } from "react-native";
+import { useMemo, useCallback } from "react";
+import { StyleSheet, View } from "react-native";
 import constants from "../../../../constants";
-import { TagTy } from "../../../../states/zustand/types";
+import { TagsEnum } from "../../../../states/zustand/types";
+import useDailyResumeState from "../../../DailyResumePost/state/useDailyResumeState";
 import Tag from "../tag";
 
-interface Props {
-  tags: TagType[];
-}
+interface Props {}
 
 const TagsContainer: React.FC<Props> = (props) => {
-  let itemList = props.tags.map((item, index) => {
-    return <Tag key={index} type={item} />;
-  });
+  const { tags } = useDailyResumeState();
+
+  const availableTags = useMemo(() => {
+    const tags = Object.values(TagsEnum);
+
+    return tags;
+  }, []);
+
+  const itemList = useMemo(() => {
+    return availableTags.map((item, index) => {
+      return <Tag key={index} type={item} />;
+    });
+  }, [tags]);
 
   return <View style={styles.container}>{itemList}</View>;
 };

@@ -7,7 +7,7 @@ interface DailyResumeState {
   note: string | null;
 
   addEmotion: (emotion: EmotionStatus) => void;
-  addTag: (tag: TagType) => void;
+  toggleTag: (tag: TagType) => void;
   addNote: (note: string) => void;
 }
 
@@ -20,8 +20,21 @@ const useDailyResumeState = create<DailyResumeState>((set, get) => {
     addEmotion(emotion) {
       set((prev) => ({ ...prev, emotion }));
     },
-    addTag(tag) {
-      set((prev) => ({ ...prev, tags: [...prev.tags, tag] }));
+    toggleTag(tag) {
+      set((prev) => {
+        const existTag = prev.tags.some((oldTags) => oldTags === tag);
+
+        console.log({ existTag });
+
+        if (existTag) {
+          const newTags = prev.tags.filter((oldTags) => oldTags !== tag);
+          console.log({ newTags });
+
+          return { ...prev, tags: [...newTags] };
+        }
+
+        return { ...prev, tags: [...prev.tags, tag] };
+      });
     },
     addNote(note) {
       set((prev) => ({ ...prev, note }));
