@@ -8,11 +8,11 @@ export const styles = StyleSheet.create({
       backgroundColor: constants.LightTheme.primary,
     },
     top: {
-      height: "10%",
+      backgroundColor: 'red',
       alignItems: "center",
       flexDirection: "row",
+      flexWrap: 'wrap',
       justifyContent: "space-evenly",
-      width: "100%",
     },
     calendar: {
       height: "10%",
@@ -20,6 +20,9 @@ export const styles = StyleSheet.create({
       alignContent: "center",
       justifyContent: "center",
       backgroundColor: constants.LightTheme.secondary,
+    },
+    saraut: {
+      
     },
     verticleLine: {
       height: "80%",

@@ -10,24 +10,14 @@ import InsertDailyButton from "./components/insertDailyButton";
 import { styles } from "./styles";
 
 const Home = () => {
-  const { user } = useUserData();
   const { posts } = useUserResumePost();
 
   console.log({ posts });
 
-  const saraut = useMemo(() => {
-    if (user.name != "") return `¡Hola, ${user.name}!`;
-    return "¡Hola!";
-  }, [user]);
-
   return (
     <View style={styles.container}>
       <Header />
-      <View style={styles.top}>
-        <Text>{saraut}</Text>
-        <View style={styles.verticleLine}></View>
-        <Text style={styles.year}>2022</Text>
-      </View>
+      
       <View style={styles.calendar}>
         <HomeCalendar />
       </View>

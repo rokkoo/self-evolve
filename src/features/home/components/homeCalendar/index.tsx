@@ -32,8 +32,8 @@ export default function HomeCalendar() {
         style={{ height: '100%', paddingVertical: 5, paddingBottom:20
       
       }}
-        calendarHeaderStyle={{ color: "white" }}
-        headerText = " "
+        calendarHeaderStyle={{ color: "white", paddingBottom: 8, }}
+        headerText = "2022"
         calendarColor={"#7743CE"}
         dateNumberStyle={{ color: "white" }}
         dateNameStyle={{ color: "white" }}
