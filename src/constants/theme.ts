@@ -1,9 +1,11 @@
 export const LightTheme = {
     primary: '#fbfae1',
-    secondary: '#220e24',
-    secondaryBorder: '#9B9090',
+    secondary: '#9ad1aa',
+    secondaryBorder: '#307470',
     terciary: '#04dead',
-    last: '#0e9577'
+    last: '#0e9577',
+    floating: '#212121',
+
 }
 
 export const DarkTheme:typeof LightTheme = {
@@ -12,4 +14,5 @@ export const DarkTheme:typeof LightTheme = {
     secondaryBorder: '',
     terciary: '',
     last: '',
+    floating: ''
 }
