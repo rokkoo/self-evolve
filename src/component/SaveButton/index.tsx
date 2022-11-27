@@ -9,7 +9,7 @@ import { FlowEnum } from "../../navigation/types";
 import useUserResumePost from "../../states/zustand/hooks/useUserResumePost";
 
 const SaveButton = () => {
-  const { emotion, tags, note } = useDailyResumeState();
+  const { emotion, tags, note, resetState } = useDailyResumeState();
   const { addNewPost } = useUserResumePost();
   const { reset } = useAppNavigation();
 
@@ -23,6 +23,7 @@ const SaveButton = () => {
     }
 
     addNewPost({ emotion, tags, note });
+    resetState();
     reset(FlowEnum.Home);
   }, [emotion, tags, note]);
 
