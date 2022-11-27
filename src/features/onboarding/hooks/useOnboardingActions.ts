@@ -14,13 +14,13 @@ const useOnboardingActions = () => {
     reset(FlowEnum.Home);
   }, []);
 
-  const handleNextPress = useCallback((name: string) => {
-    saveUserData({ name });
-    console.log("name saved");
-    handleAction();
-  }, []);
-
-  console.log({ user });
+  const handleNextPress = useCallback(
+    (name: string) => {
+      saveUserData({ name });
+      handleAction();
+    },
+    [handleAction]
+  );
 
   return {
     handleNextPress,

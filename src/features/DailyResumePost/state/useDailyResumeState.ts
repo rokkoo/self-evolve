@@ -27,7 +27,6 @@ const useDailyResumeState = create<DailyResumeState>((set, get) => {
 
         if (existTag) {
           const newTags = prev.tags.filter((oldTags) => oldTags !== tag);
-          console.log({ newTags });
 
           return { ...prev, tags: [...newTags] };
         }

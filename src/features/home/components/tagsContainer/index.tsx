@@ -11,8 +11,6 @@ interface Props {
 }
 
 const TagsContainer: React.FC<Props> = ({ tags, onTagPress, selectedTags }) => {
-  console.log({ selectedTags });
-
   const isSelected = useCallback(
     (type: TagType) => {
       if (!selectedTags) return false;

@@ -23,7 +23,6 @@ const EmotionView: React.FC<Props> = ({ emotionalStatus }) => {
   }, [emotion, emotionalStatus]);
 
   const handleEmotionPress = useCallback(() => {
-    console.log("pressed", emotionalStatus);
     addEmotion(emotionalStatus);
   }, [emotionalStatus]);
 
