@@ -32,11 +32,11 @@ function AppStack() {
         component={Home}
       />
       <Stack.Screen
-        options={{ headerShown: false }}
+        options={{ headerShown: false, presentation: "fullScreenModal" }}
         name={FlowEnum.DailyResumePost}
         component={DailyResumePost}
       />
-    </Stack.Navigator>  
+    </Stack.Navigator>
   );
 }
 
