@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     row: {
         alignItems: 'center',
         flexDirection: 'row',
-  
+        
     },
     container: {
         alignItems: 'center',
@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         marginVertical: 10,
         width: "90%",
+        
     },
     left: {
         flex: 1,
@@ -39,5 +40,8 @@ export const styles = StyleSheet.create({
         height: 80,
         borderRadius:20,
         margin: 5,
+    },
+    tagsBox: {
+        
     }
 })

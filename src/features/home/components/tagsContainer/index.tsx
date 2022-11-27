@@ -1,6 +1,6 @@
 import { StyleProp, StyleSheet, View } from "react-native";
 import constants from "../../../../constants";
-import { TagType } from "../../../../states/zustand/types";
+import { TagTy } from "../../../../states/zustand/types";
 import Tag from "../tag";
 
 interface Props {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    width: "90%",
+    width: "100%",
     margin: 10,
     backgroundColor: "#D9CACA",
     borderColor: constants.LightTheme.last,
