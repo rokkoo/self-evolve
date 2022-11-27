@@ -8,10 +8,9 @@ interface Props {
 }
 
 const DailyResume: React.FC<Props> = ({ emotionalStatus }) => {
-    const source = useMemo(() => {
-        return iconSource(emotionalStatus)
-    }, [emotionalStatus]);
-
+  const source = useMemo(() => {
+    return iconSource(emotionalStatus);
+  }, [emotionalStatus]);
 
   return (
     <View style={styles.container}>
@@ -31,6 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     width: "100%",
+    marginVertical: 12,
   },
   text: {
     fontSize: 20,

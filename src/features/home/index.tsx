@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Header />
-
       <View style={styles.calendar}>
         <HomeCalendar />
       </View>
