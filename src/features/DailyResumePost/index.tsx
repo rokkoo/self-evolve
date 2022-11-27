@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AppLayout from "../../component/AppLayout";
@@ -9,16 +9,22 @@ import { FontSize } from "../../constants/metrics";
 import useAppNavigation from "../../navigation/hooks/useAppNavigation";
 import { FlowEnum } from "../../navigation/types";
 import useUserResumePost from "../../states/zustand/hooks/useUserResumePost";
-import { EmotionalStatusEnum, TagsEnum } from "../../states/zustand/types";
+import {
+  EmotionalStatusEnum,
+  TagsEnum,
+  TagType,
+} from "../../states/zustand/types";
 import TagsContainer from "../home/components/tagsContainer";
 import useSmthElse from "../home/hooks/useSmthElsePost";
 import EmotionalStateSelector from "./components/emotionalStateSelector";
 import Header from "./components/header";
+import useDailyResumeState from "./state/useDailyResumeState";
 
 const DailyResumePost = () => {
   const { handleSmthElseInputChange, smthElse } = useSmthElse();
   const { navigation } = useAppNavigation();
   const { addNewPost } = useUserResumePost();
+  const { tags, toggleTag } = useDailyResumeState();
 
   const handlePress = useCallback(() => {
     addNewPost({
@@ -26,6 +32,16 @@ const DailyResumePost = () => {
       // tags: []
     });
     navigation.navigate(FlowEnum.DailyResumePost);
+  }, []);
+
+  const onTagPress = useCallback((tag: TagType) => {
+    toggleTag(tag);
+  }, []);
+
+  const availableTags = useMemo(() => {
+    const tags = Object.values(TagsEnum);
+
+    return tags;
   }, []);
 
   return (
@@ -44,7 +60,11 @@ const DailyResumePost = () => {
             children={"Durante el día:"}
             fontSize={FontSize.l}
           />
-          <TagsContainer tags={[TagsEnum.DOSPORT, TagsEnum.TAKEANAP]} />
+          <TagsContainer
+            tags={availableTags}
+            selectedTags={tags}
+            onTagPress={onTagPress}
+          />
           <AppText
             style={styles.text}
             children={"Algo que añadir:"}

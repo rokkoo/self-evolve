@@ -1,26 +1,39 @@
 import { useMemo, useCallback } from "react";
 import { StyleSheet, View } from "react-native";
 import constants from "../../../../constants";
-import { TagsEnum } from "../../../../states/zustand/types";
-import useDailyResumeState from "../../../DailyResumePost/state/useDailyResumeState";
+import { TagType } from "../../../../states/zustand/types";
 import Tag from "../tag";
 
-interface Props {}
+interface Props {
+  tags: TagType[];
+  onTagPress?: (tag: TagType) => void;
+  selectedTags?: TagType[];
+}
 
-const TagsContainer: React.FC<Props> = (props) => {
-  const { tags } = useDailyResumeState();
+const TagsContainer: React.FC<Props> = ({ tags, onTagPress, selectedTags }) => {
+  console.log({ selectedTags });
 
-  const availableTags = useMemo(() => {
-    const tags = Object.values(TagsEnum);
+  const isSelected = useCallback(
+    (type: TagType) => {
+      if (!selectedTags) return false;
 
-    return tags;
-  }, []);
+      return selectedTags.some((tag) => tag === type);
+    },
+    [selectedTags]
+  );
 
   const itemList = useMemo(() => {
-    return availableTags.map((item, index) => {
-      return <Tag key={index} type={item} />;
+    return tags.map((item, index) => {
+      return (
+        <Tag
+          key={index}
+          type={item}
+          isSelected={isSelected(item)}
+          onPress={onTagPress}
+        />
+      );
     });
-  }, [tags]);
+  }, [tags, isSelected, onTagPress]);
 
   return <View style={styles.container}>{itemList}</View>;
 };
