@@ -23,9 +23,7 @@ const Header = () => {
   return (
     <View style={styles.container}>
         <View style={styles.containerSaraut}>
-          <AppText fontSize={FontSize.m} style={styles.saraut}>{saraut}</AppText>
-          <View style={styles.verticleLine}></View>
-          <AppText fontSize={FontSize.l} style={styles.year}>2022</AppText>
+          <AppText fontSize={FontSize.l}>{saraut}</AppText>
         </View>
         <View style={styles.containerSettings}>  
         <TouchableOpacity onPress={handleSettingsPress}>
@@ -51,17 +49,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent: 'space-evenly',
+    alignContent: 'flex-start',
   },
   containerSettings: {
     alignItems: "flex-end",
-  },
-
-  saraut: {},
-  verticleLine: {
-    width: 1,
-    backgroundColor: constants.LightTheme.last,
   },
   year: {},
   settingsImage: {
