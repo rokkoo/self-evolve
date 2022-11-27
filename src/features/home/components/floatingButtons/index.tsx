@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import constants from "../../../../constants";
+import { LightTheme } from "../../../../constants/theme";
 import useAppNavigation from "../../../../navigation/hooks/useAppNavigation";
 import { FlowEnum } from "../../../../navigation/types";
 import { PostTypeEnum } from "../../../../states/zustand/types";
@@ -9,7 +10,7 @@ import { PostTypeEnum } from "../../../../states/zustand/types";
 const FloatingButtons = () => {
   const { navigation } = useAppNavigation();
 
-  const handlePress = useCallback(() => {
+  const handleResumePress = useCallback(() => {
     navigation.navigate(FlowEnum.DailyResumePost, {
       type: PostTypeEnum.RESUME,
     });
@@ -24,10 +25,10 @@ const FloatingButtons = () => {
   return (
     <View>
       <View style={styles.dailyButton}>
-        <TouchableOpacity onPress={handlePress}>
+        <TouchableOpacity onPress={handleResumePress}>
           <Image
             style={styles.icon}
-            source={require("../../../../../assets/icons/star_large.png")}
+            source={require("../../../../../assets/icons/light.png")}
           />
         </TouchableOpacity>
       </View>
@@ -35,7 +36,7 @@ const FloatingButtons = () => {
         <TouchableOpacity onPress={handleInstaPress}>
           <Image
             style={styles.icon}
-            source={require("../../../../../assets/icons/triangle_large.png")}
+            source={require("../../../../../assets/icons/note.png")}
           />
         </TouchableOpacity>
       </View>
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
-    tintColor: "white",
+    tintColor: LightTheme.secondary,
   },
 });
 
