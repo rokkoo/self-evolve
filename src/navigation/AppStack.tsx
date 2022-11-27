@@ -4,7 +4,7 @@ import Home from "../features/home";
 import Onboarding from "../features/onboarding";
 import useUserData from "../states/zustand/hooks/useUserData";
 import { FlowEnum } from "./types";
-import DailyResumePost from "../features/DailyResumePost/inde";
+import DailyResumePost from "../features/DailyResumePost";
 
 const Stack = createNativeStackNavigator();
 
