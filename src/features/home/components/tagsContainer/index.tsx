@@ -22,6 +22,8 @@ const TagsContainer: React.FC<Props> = ({ tags, onTagPress, selectedTags }) => {
     [selectedTags]
   );
 
+  if (tags.length <= 0) return null;
+
   const itemList = useMemo(() => {
     return tags.map((item, index) => {
       return (
@@ -40,16 +42,17 @@ const TagsContainer: React.FC<Props> = ({ tags, onTagPress, selectedTags }) => {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "center",
+    // justifyContent: "center",
     width: "100%",
-    margin: 10,
-    backgroundColor: "#D9CACA",
+    // backgroundColor: "#D9CACA",
     borderColor: constants.LightTheme.last,
-    padding: 5,
     borderRadius: 10,
+    paddingVertical: 6,
+    // marginHorizontal: 16,
+    // margin: 10,
+    // padding: 5,
   },
 });
 

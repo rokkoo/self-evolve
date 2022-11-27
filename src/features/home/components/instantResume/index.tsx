@@ -8,6 +8,8 @@ import {
   TagType,
 } from "../../../../states/zustand/types";
 import { iconSource } from "../../../../lib/emotionsLib";
+import moment from "moment";
+import AppText from "../../../../component/AppText";
 
 interface Props {
   text: string;
@@ -18,27 +20,29 @@ interface Props {
 
 const InstantResume: React.FC<Props> = (props) => {
   const source = useMemo(() => {
-    return iconSource(props.emotionalStatus)
+    return iconSource(props.emotionalStatus);
   }, [props.emotionalStatus]);
 
-  console.log(props.emotionalStatus);
+  const date = useMemo(() => {
+    return moment(props.createdAt).locale("es").format("LT");
+  }, [props.createdAt]);
 
   return (
     <View style={styles.container}>
-        <View style={styles.row}>
-            <View style={styles.textAndHourContainer}>
-            <Text style={styles.hour}>{props.createdAt}</Text>
-            <Text style={styles.text}>{props.text}</Text>
-
-            </View>
-            <Image
-            style={styles.emotionalStatus}
-            source={source}
-            resizeMode="contain"
-            />
+      <View style={styles.row}>
+        <View style={styles.textAndHourContainer}>
+          <AppText style={styles.hour}>{date}</AppText>
+          <AppText style={styles.text}>{props.text}</AppText>
         </View>
-        <View style={styles.row}>
-        </View>
+        <Image
+          style={styles.emotionalStatus}
+          source={source}
+          resizeMode="contain"
+        />
+      </View>
+      <View style={styles.tagsContainer}>
+        <TagsContainer tags={props.tags} />
+      </View>
     </View>
   );
 };
