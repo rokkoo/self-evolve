@@ -1,38 +1,18 @@
 import { useCallback, useMemo } from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AppLayout from "../../component/AppLayout";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import AppText from "../../component/AppText";
-import SaveButton from "../../component/SaveButton";
 import { FontSize } from "../../constants/metrics";
-import useAppNavigation from "../../navigation/hooks/useAppNavigation";
-import { FlowEnum } from "../../navigation/types";
-import useUserResumePost from "../../states/zustand/hooks/useUserResumePost";
-import {
-  EmotionalStatusEnum,
-  TagsEnum,
-  TagType,
-} from "../../states/zustand/types";
+import { TagsEnum, TagType } from "../../states/zustand/types";
 import TagsContainer from "../home/components/tagsContainer";
-import useSmthElse from "../home/hooks/useSmthElsePost";
 import EmotionalStateSelector from "./components/emotionalStateSelector";
 import Header from "./components/header";
 import useDailyResumeState from "./state/useDailyResumeState";
 
 const DailyResumePost = () => {
-  const { handleSmthElseInputChange, smthElse } = useSmthElse();
-  const { navigation } = useAppNavigation();
-  const { addNewPost } = useUserResumePost();
-  const { tags, toggleTag } = useDailyResumeState();
-
-  const handlePress = useCallback(() => {
-    addNewPost({
-      emotion: EmotionalStatusEnum.HAPPY,
-      // tags: []
-    });
-    navigation.navigate(FlowEnum.DailyResumePost);
-  }, []);
+  const { tags, toggleTag, addNote, note } = useDailyResumeState();
 
   const onTagPress = useCallback((tag: TagType) => {
     toggleTag(tag);
@@ -70,17 +50,17 @@ const DailyResumePost = () => {
             children={"Algo que añadir:"}
             fontSize={FontSize.l}
           />
-          <TextInput
-            style={styles.input}
-            value={smthElse}
-            onChangeText={handleSmthElseInputChange}
-            placeholder="Hoy ha sido un dia estupendo en familia, hemos ido a comer langosta al centro, subido en uno de nuestros yates mas lujosos y emprendido rumbo a Honolulu. Alli nos esperaba nuestro amigo Pepe..."
-            placeholderTextColor={"grey"}
-            multiline={true}
-          />
-          <View style={styles.saveButton}>
-            <SaveButton />
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              value={note ?? ""}
+              onChangeText={addNote}
+              placeholder="Que te ha hecho sentir asi?"
+              placeholderTextColor={"grey"}
+              multiline={true}
+            />
           </View>
+          <View style={styles.saveButton}>{/* <SaveButton /> */}</View>
         </View>
       </AppLayoutScrollView>
     </AppLayout>
@@ -94,15 +74,26 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    paddingVertical: 20,
+    paddingTop: 28,
+    paddingBottom: 14,
+  },
+  inputContainer: {
+    width: "100%",
+    borderColor: "#B2B2B2",
+    borderWidth: 1,
+    borderRadius: 10,
+    // paddingVertical: 40,
+    minHeight: 60,
+    alignItems: "flex-start",
   },
   input: {
+    // flex: 1,
     paddingHorizontal: 10,
-    paddingVertical: 20,
-    borderColor: "gray",
-    borderBottomWidth: 0.8,
-    borderRadius: 10,
-    alignSelf: "center",
+    paddingVertical: 8,
+    // borderColor: "#B2B2B2",
+    borderWidth: 0,
+    width: "100%",
+    // backgroundColor: "red",
   },
   saveButton: {
     width: "100%",

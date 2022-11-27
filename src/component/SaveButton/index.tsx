@@ -3,13 +3,14 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import Toast from "react-native-toast-message";
 
 import constants from "../../constants";
+import { FontSize } from "../../constants/metrics";
 import useDailyResumeState from "../../features/DailyResumePost/state/useDailyResumeState";
 import useAppNavigation from "../../navigation/hooks/useAppNavigation";
 import { FlowEnum } from "../../navigation/types";
 import useUserResumePost from "../../states/zustand/hooks/useUserResumePost";
 
 const SaveButton = () => {
-  const { emotion, tags, note } = useDailyResumeState();
+  const { emotion, tags, note, resetState } = useDailyResumeState();
   const { addNewPost } = useUserResumePost();
   const { reset } = useAppNavigation();
 
@@ -23,6 +24,7 @@ const SaveButton = () => {
     }
 
     addNewPost({ emotion, tags, note });
+    resetState();
     reset(FlowEnum.Home);
   }, [emotion, tags, note]);
 
@@ -36,16 +38,16 @@ const SaveButton = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: constants.LightTheme.last,
-    borderRadius: 8,
-    paddingVertical: 14,
-    paddingHorizontal: 10,
-    width: "100%",
+    borderRadius: 60,
+    paddingVertical: 6,
+    paddingHorizontal: 14,
   },
   buttonText: {
     color: constants.LightTheme.primary,
     fontWeight: "bold",
     textTransform: "capitalize",
     textAlign: "center",
+    fontSize: FontSize.s,
   },
 });
 
