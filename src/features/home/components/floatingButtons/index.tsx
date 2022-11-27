@@ -25,7 +25,7 @@ const FloatingButtons = () => {
   return (
     <View>
       <View style={styles.dailyButton}>
-        <TouchableOpacity onPress={handleResumePress}>
+        <TouchableOpacity onPress={handleInstaPress}>
           <Image
             style={styles.icon}
             source={require("../../../../../assets/icons/light.png")}
@@ -33,7 +33,7 @@ const FloatingButtons = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.instantButton}>
-        <TouchableOpacity onPress={handleInstaPress}>
+        <TouchableOpacity onPress={handleResumePress}>
           <Image
             style={styles.icon}
             source={require("../../../../../assets/icons/note.png")}
