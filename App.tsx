@@ -4,10 +4,19 @@ import AppNavigationContainer from "./src/navigation";
 
 // Necesary to use uuid
 import "react-native-get-random-values";
+import useSplashScreen from "./src/hooks/useSplashScreen";
 
 export default function App() {
+  const { fontsLoaded, onLayoutRootView } = useSplashScreen();
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  console.log({ fontsLoaded });
+
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <AppNavigationContainer />
       <Toast />
     </GestureHandlerRootView>

@@ -33,7 +33,9 @@
     "react-native-toast-message": "^2.1.5",
     "react-native-web": "~0.18.9",
     "uuid": "^9.0.0",
-    "zustand": "^4.1.4"
+    "zustand": "^4.1.4",
+    "expo-font": "~11.0.1",
+    "expo-splash-screen": "~0.17.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
