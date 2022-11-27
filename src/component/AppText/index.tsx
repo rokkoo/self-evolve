@@ -1,11 +1,11 @@
-import React, { ReactNode, useMemo } from "react";
-import { StyleProp, Text, ViewStyle } from "react-native";
+import React, { ReactNode } from "react";
+import { StyleProp, Text, TextStyle } from "react-native";
 import { FontSize } from "../../constants/metrics";
 
 interface Props {
   children: ReactNode;
   fontSize?: typeof FontSize[keyof typeof FontSize];
-  style?: StyleProp<ViewStyle>,
+  style?: StyleProp<TextStyle>;
 }
 
 const AppText: React.FC<Props> = ({ children, fontSize = 10, style }) => {
