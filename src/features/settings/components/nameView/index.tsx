@@ -33,7 +33,7 @@ const NameView = () => {
 
   return (
     <View>
-      <AppText fontSize={FontSize.l} style={{ fontWeight: "600" }}>
+      <AppText fontSize={FontSize.l} semi>
         Cambia tu nombre
       </AppText>
       <TextInput

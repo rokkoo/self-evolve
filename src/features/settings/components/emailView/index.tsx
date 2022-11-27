@@ -40,7 +40,7 @@ const EmailView = () => {
 
   return (
     <View style={styles.container}>
-      <AppText fontSize={FontSize.l} style={{ fontWeight: "600" }}>
+      <AppText fontSize={FontSize.l} semi>
         Email al que deseas enviar tus notas
       </AppText>
       <TextInput
