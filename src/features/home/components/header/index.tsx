@@ -3,12 +3,15 @@ import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { FlowEnum } from "../../../../navigation/types";
 import { LayoutMetrics } from "../../../../constants/metrics";
 import useAppNavigation from "../../../../navigation/hooks/useAppNavigation";
+import { PostTypeEnum } from "../../../../states/zustand/types";
 
 const Header = () => {
   const { navigation } = useAppNavigation();
 
   const handleSettingsPress = useCallback(() => {
-    navigation.navigate(FlowEnum.DailyResumePost);
+    navigation.navigate(FlowEnum.DailyResumePost, {
+      type: PostTypeEnum.RESUME,
+    });
   }, []);
 
   return (

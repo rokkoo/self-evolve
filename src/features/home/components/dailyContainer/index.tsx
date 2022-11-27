@@ -11,15 +11,15 @@ import DailyResume from "../dailyResume";
 import InstantResume from "../instantResume";
 
 const DailyContainer = () => {
-  const { getPostResumeFromDate } = useUserResumePost();
+  const { getInstantPostsResumeFromDate } = useUserResumePost();
 
   const instantPosts = useMemo(() => {
     const date = moment().toISOString();
 
-    const posts = getPostResumeFromDate(date);
+    const posts = getInstantPostsResumeFromDate(date);
 
     return posts;
-  }, [getPostResumeFromDate]);
+  }, [getInstantPostsResumeFromDate]);
 
   return (
     <View style={styles.container}>

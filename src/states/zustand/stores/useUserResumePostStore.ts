@@ -5,16 +5,10 @@ import { v4 as uuidv4 } from "uuid";
 import LocalStorage from "../../../storage/instances/localStorage";
 import { StorageIdEnum } from "../../../storage/types";
 
-import { EmotionType, ResumePost, TagType } from "../types";
+import { Post, ResumePost } from "../types";
 import moment from "moment";
 
 const localStorage = new LocalStorage(StorageIdEnum.USER_POSTS);
-
-interface Post {
-  emotion: EmotionType;
-  tags: TagType[];
-  note: string;
-}
 
 type PostType = ResumePost & Post;
 interface InitialState {
@@ -35,8 +29,6 @@ const useUserResumePostStore = create<InitialState>(
       addNewPost: (post) => {
         // UTC time
         const createdAt = moment().toISOString();
-
-        console.log({ createdAt });
 
         set((prev) => {
           return {

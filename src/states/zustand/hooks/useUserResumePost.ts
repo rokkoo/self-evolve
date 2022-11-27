@@ -1,11 +1,12 @@
 import moment from "moment";
 import { useCallback } from "react";
 import useUserResumePostStore from "../stores/useUserResumePostStore";
+import { PostTypeEnum } from "../types";
 
 const useUserResumePost = () => {
   const state = useUserResumePostStore((state) => state);
 
-  const getPostResumeFromDate = useCallback(
+  const getInstantPostsResumeFromDate = useCallback(
     (date: string) => {
       const month = moment(date).get("month");
       const year = moment(date).get("year");
@@ -16,12 +17,13 @@ const useUserResumePost = () => {
         const postDay = moment(post.createdAt);
         const postMonth = postDay.get("month");
         const postYear = postDay.get("year");
+        console.log({ post });
 
-        if (postMonth === month && postYear === year) {
-          return true;
-        }
-
-        return false;
+        return (
+          postMonth === month &&
+          postYear === year &&
+          post.type === PostTypeEnum.INSTAN
+        );
       });
 
       return posts;
@@ -29,7 +31,7 @@ const useUserResumePost = () => {
     [state.posts]
   );
 
-  return { ...state, getPostResumeFromDate };
+  return { ...state, getInstantPostsResumeFromDate };
 };
 
 export default useUserResumePost;
