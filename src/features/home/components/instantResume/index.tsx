@@ -35,29 +35,22 @@ const InstantResume: React.FC<Props> = (props) => {
   console.log(props.emotionalStatus);
   return (
     <View style={styles.container}>
-      <View>
-        <View>
-          <View style={styles.row}>
-            <View style={styles.left}>
-              <Text style={styles.hour}>{props.createdAt}</Text>
-              <Text style={styles.text}>{props.text}</Text>
-            </View>
-            <View style={styles.right}>
-              <Image
-                style={styles.emotionalStatus}
-                source={iconSource}
-                resizeMode="contain"
-              />
-            </View>
-          </View>
-          <View style={styles.tagsbox}>
-            <TagsContainer tags={props.tags} />
-          </View>
+        <View style={styles.row}>
+        <View style={styles.left}>
+            <Text style={styles.hour}>{props.createdAt}</Text>
+            <Text style={styles.text}>{props.text}</Text>
         </View>
         <View style={styles.right}>
-          <View style={styles.emotionalStatus}></View>
+            <Image
+            style={styles.emotionalStatus}
+            source={iconSource}
+            resizeMode="contain"
+            />
         </View>
-      </View>
+        </View>
+        <View style={styles.tagsBox}>
+        <TagsContainer tags={props.tags} />
+        </View>
     </View>
   );
 };
