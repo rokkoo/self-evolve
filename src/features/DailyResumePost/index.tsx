@@ -1,14 +1,15 @@
 import { useCallback, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import AppHeader from "../../component/AppHeader";
 import AppLayout from "../../component/AppLayout";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import AppText from "../../component/AppText";
+import SaveButton from "../../component/SaveButton";
 import { FontSize } from "../../constants/metrics";
 import { TagsEnum, TagType } from "../../states/zustand/types";
 import TagsContainer from "../home/components/tagsContainer";
 import EmotionalStateSelector from "./components/emotionalStateSelector";
-import Header from "./components/header";
 import useDailyResumeState from "./state/useDailyResumeState";
 
 const DailyResumePost = () => {
@@ -26,7 +27,7 @@ const DailyResumePost = () => {
 
   return (
     <AppLayout>
-      <Header />
+      <AppHeader rightChilder={<SaveButton />} />
       <AppLayoutScrollView>
         <View style={styles.container}>
           <AppText

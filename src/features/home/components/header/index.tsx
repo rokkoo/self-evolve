@@ -17,9 +17,7 @@ const Header = () => {
   }, [user]);
 
   const handleSettingsPress = useCallback(() => {
-    navigation.navigate(FlowEnum.DailyResumePost, {
-      type: PostTypeEnum.RESUME,
-    });
+    navigation.navigate(FlowEnum.Settings);
   }, []);
 
   return (
