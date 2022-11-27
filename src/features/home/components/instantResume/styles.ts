@@ -5,7 +5,9 @@ export const styles = StyleSheet.create({
     row: {
         alignItems: 'center',
         flexDirection: 'row',
-        
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        marginHorizontal: 20,
     },
     container: {
         alignItems: 'center',
@@ -13,31 +15,29 @@ export const styles = StyleSheet.create({
         backgroundColor: constants.LightTheme.secondary,
         borderColor: constants.LightTheme.terciary,
         borderRadius: 20,
+        paddingVertical: 5,
         marginVertical: 10,
-        width: "90%",
+        marginHorizontal: 20,
         
     },
-    left: {
+    textAndHourContainer: {
         flex: 1,
-    },
-    right: {
-        alignItems: 'center',
-        width: "30%",
-    },
-    text: {
         fontSize: 16,
-        marginHorizontal: 20,
+        marginHorizontal: 3,
         marginVertical:10,
 
     },
+    text:{
+        
+    },
     hour: {
+        opacity: 0.5,
         fontSize: 14,
-        marginHorizontal: 20,
-        marginTop: 10,
+        marginBottom: 20,
     },
     emotionalStatus: {
-        width: 80,
-        height: 80,
+        width: 70,
+        height: 70,
         borderRadius:20,
         margin: 5,
     },

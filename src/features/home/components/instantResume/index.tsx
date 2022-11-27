@@ -4,7 +4,7 @@ import TagsContainer from "../tagsContainer";
 import { styles } from "./styles";
 import {
   EmotionalStatusEnum,
-  EmotionStatus,
+  EmotionType,
   TagType,
 } from "../../../../states/zustand/types";
 import { iconSource } from "../../../../lib/emotionsLib";
@@ -12,7 +12,7 @@ import { iconSource } from "../../../../lib/emotionsLib";
 interface Props {
   text: string;
   createdAt: string;
-  emotionalStatus: EmotionStatus;
+  emotionalStatus: EmotionType;
   tags: TagType[];
 }
 
@@ -22,24 +22,22 @@ const InstantResume: React.FC<Props> = (props) => {
   }, [props.emotionalStatus]);
 
   console.log(props.emotionalStatus);
-  
+
   return (
     <View style={styles.container}>
         <View style={styles.row}>
-        <View style={styles.left}>
+            <View style={styles.textAndHourContainer}>
             <Text style={styles.hour}>{props.createdAt}</Text>
             <Text style={styles.text}>{props.text}</Text>
-        </View>
-        <View style={styles.right}>
+
+            </View>
             <Image
             style={styles.emotionalStatus}
             source={source}
             resizeMode="contain"
             />
         </View>
-        </View>
-        <View style={styles.tagsBox}>
-        <TagsContainer tags={props.tags} />
+        <View style={styles.row}>
         </View>
     </View>
   );
