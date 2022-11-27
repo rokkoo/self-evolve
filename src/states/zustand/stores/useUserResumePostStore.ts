@@ -10,9 +10,9 @@ import moment from "moment";
 
 const localStorage = new LocalStorage(StorageIdEnum.USER_POSTS);
 
-type PostType = ResumePost & Post;
+export type PostStateType = ResumePost & Post;
 interface InitialState {
-  posts: PostType[];
+  posts: PostStateType[];
   addNewPost: (post: Post) => void;
 }
 

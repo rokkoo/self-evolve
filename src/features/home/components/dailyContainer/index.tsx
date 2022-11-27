@@ -11,7 +11,7 @@ import DailyResume from "../dailyResume";
 import InstantResume from "../instantResume";
 
 const DailyContainer = () => {
-  const { getInstantPostsResumeFromDate } = useUserResumePost();
+  const { getInstantPostsResumeFromDate, resumePost } = useUserResumePost();
 
   const instantPosts = useMemo(() => {
     const date = moment().toISOString();
@@ -21,9 +21,14 @@ const DailyContainer = () => {
     return posts;
   }, [getInstantPostsResumeFromDate]);
 
+  const renderResumePost = useCallback(() => {
+    if (!resumePost) return null;
+
+    return <DailyResume emotionalStatus={resumePost.emotion} />;
+  }, [resumePost]);
   return (
     <View style={styles.container}>
-      <DailyResume emotionalStatus={EmotionalStatusEnum.NEUTRAL} />
+      {renderResumePost()}
 
       <FlatList
         data={instantPosts}
