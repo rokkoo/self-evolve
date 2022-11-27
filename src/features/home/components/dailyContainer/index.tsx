@@ -1,13 +1,14 @@
 import { StyleSheet, View } from "react-native";
-import { EmotionalStatusEnum } from "../../types";
+import {
+  EmotionalStatusEnum,
+  TagsEnum,
+} from "../../../../states/zustand/types";
 import DailyResume from "../dailyResume";
 import InstantResume from "../instantResume";
-import { TagsEnum } from "../tagsContainer/types";
 
 const DailyContainer = () => {
   return (
     <View style={styles.container}>
-      
       <DailyResume emotionalStatus={EmotionalStatusEnum.NEUTRAL} />
 
       <InstantResume
@@ -28,7 +29,6 @@ const DailyContainer = () => {
           TagsEnum.TAKEANAP,
           TagsEnum.DOSPORT,
           TagsEnum.TAKEANAP,
-          
         ]}
       />
     </View>
@@ -38,11 +38,11 @@ const DailyContainer = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    width: '100%',
-  }
-})
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    width: "100%",
+  },
+});
 
 export default DailyContainer;

@@ -1,16 +1,12 @@
 import { Image, Text, View } from "react-native";
 import { useMemo } from "react";
 import TagsContainer from "../tagsContainer";
-import { TagType } from "../tagsContainer/types";
 import { styles } from "./styles";
-
-export enum EmotionalStatusEnum {
-  HAPPY = "happy",
-  SAD = "sad",
-}
-
-export type EmotionStatus =
-  typeof EmotionalStatusEnum[keyof typeof EmotionalStatusEnum];
+import {
+  EmotionalStatusEnum,
+  EmotionStatus,
+  TagType,
+} from "../../../../states/zustand/types";
 
 interface Props {
   text: string;
@@ -21,7 +17,6 @@ interface Props {
 
 const InstantResume: React.FC<Props> = (props) => {
   const iconSource = useMemo(() => {
-    let emotionSourceName: EmotionStatus = EmotionalStatusEnum.HAPPY;
     if (props.emotionalStatus === EmotionalStatusEnum.HAPPY) {
       return require(`../../../../../assets/icons/emotions/happy.png`);
     }
