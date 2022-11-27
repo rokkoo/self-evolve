@@ -7,6 +7,7 @@ import {
   EmotionStatus,
   TagType,
 } from "../../../../states/zustand/types";
+import { iconSource } from "../../../../lib/emotionsLib";
 
 interface Props {
   text: string;
@@ -16,23 +17,12 @@ interface Props {
 }
 
 const InstantResume: React.FC<Props> = (props) => {
-  const iconSource = useMemo(() => {
-    if (props.emotionalStatus === EmotionalStatusEnum.HAPPY) {
-      return require(`../../../../../assets/icons/emotions/happy.png`);
-    }
-
-    if (props.emotionalStatus === EmotionalStatusEnum.SAD) {
-      return require(`../../../../../assets/icons/emotions/sad.png`);
-    }
-
-    if (props.emotionalStatus === EmotionalStatusEnum.NEUTRAL) {
-      return require(`../../../../../assets/icons/emotions/neutral.png`);
-    }
-
-    return undefined;
+  const source = useMemo(() => {
+    return iconSource(props.emotionalStatus)
   }, [props.emotionalStatus]);
 
   console.log(props.emotionalStatus);
+  
   return (
     <View style={styles.container}>
         <View style={styles.row}>
@@ -43,7 +33,7 @@ const InstantResume: React.FC<Props> = (props) => {
         <View style={styles.right}>
             <Image
             style={styles.emotionalStatus}
-            source={iconSource}
+            source={source}
             resizeMode="contain"
             />
         </View>

@@ -1,19 +1,25 @@
+import { useMemo } from "react"
 import { Image, StyleSheet, View } from "react-native"
 import AppText from "../../../../../../component/AppText"
 import { FontSize } from "../../../../../../constants/metrics"
-import { TagType } from "../../../../../../states/zustand/types"
+import { iconSource } from "../../../../../../lib/emotionsLib"
+import { EmotionStatus, TagType } from "../../../../../../states/zustand/types"
 
 interface Props {
     text: string,
-    tag: TagType,
+    emotionalStatus: EmotionStatus,
 }
 
-const StateView: React.FC<Props>= ({ text, }) => {
+const StateView: React.FC<Props>= ({ text, emotionalStatus}) => {
+    const source = useMemo(() => {
+        return iconSource(emotionalStatus)
+      }, [emotionalStatus]);
+    
     return (
         <View style={styles.statusContainer}>
             <Image 
                 style={styles.emotionalStatus} 
-                source={require(`../../../../../assets/icons/emotions/happy.png`)}
+                source={source}
                 resizeMode="contain"
                 />
             <AppText
