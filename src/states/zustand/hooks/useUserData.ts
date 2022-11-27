@@ -1,4 +1,4 @@
-import useUserStore from "..";
+import useUserStore from "../stores/useUserDataStore";
 
 const useUserData = () => {
   const state = useUserStore((state) => state);
