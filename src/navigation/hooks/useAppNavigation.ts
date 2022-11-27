@@ -1,13 +1,8 @@
 import { useCallback } from "react";
-import {
-  useNavigation,
-  useRoute,
-  useIsFocused,
-} from "@react-navigation/native";
-import { AppNavigationProps, FlowName } from "../types";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { AppNavigationProps, FlowName, StackParamList } from "../types";
 
 const useAppNavigation = () => {
-  const route = useRoute();
   const navigation = useNavigation<AppNavigationProps>();
   const isFocused = useIsFocused();
 
@@ -18,7 +13,7 @@ const useAppNavigation = () => {
     });
   }, []);
 
-  return { navigation, route, isFocused, reset };
+  return { navigation, isFocused, reset };
 };
 
 export default useAppNavigation;

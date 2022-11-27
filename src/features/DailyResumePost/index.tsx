@@ -60,7 +60,6 @@ const DailyResumePost = () => {
               multiline={true}
             />
           </View>
-          <View style={styles.saveButton}>{/* <SaveButton /> */}</View>
         </View>
       </AppLayoutScrollView>
     </AppLayout>
