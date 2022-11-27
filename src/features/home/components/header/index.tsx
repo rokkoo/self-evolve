@@ -25,7 +25,8 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: LayoutMetrics.verticalSpacing,
+    paddingVertical:
+      LayoutMetrics.headerVericalSpacing + LayoutMetrics.headerVericalSpacing,
     paddingHorizontal: LayoutMetrics.horizontalSpacing,
     alignItems: "flex-end",
   },

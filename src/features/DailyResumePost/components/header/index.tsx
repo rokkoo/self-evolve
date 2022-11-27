@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import SaveButton from "../../../../component/SaveButton";
 import { LayoutMetrics } from "../../../../constants/metrics";
 import useAppNavigation from "../../../../navigation/hooks/useAppNavigation";
-import { FlowEnum } from "../../../../navigation/types";
 
 const Header = () => {
   const { navigation } = useAppNavigation();
@@ -23,13 +23,17 @@ const Header = () => {
           style={styles.image}
         />
       </TouchableOpacity>
+      <SaveButton />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "flex-start",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: LayoutMetrics.headerVericalSpacing,
   },
   imageContainer: {},
   image: {
