@@ -32,26 +32,23 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: constants.LightTheme.secondary,
     marginHorizontal: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
     marginVertical: 5,
-    borderRadius: 5,
-    borderColor: "#D9CACA",
+    borderRadius: 30,
+    borderColor: constants.LightTheme.secondary,
     borderWidth: 1,
+    opacity: 0.3,
   },
   selectedContainer: {
-    backgroundColor: constants.LightTheme.terciary,
-    borderRadius: 6,
-    margin: 3,
+    opacity: 1,
   },
   text: {
-    opacity: 0.4,
+    opacity: 1,
     fontWeight: "600",
   },
   selectedText: {
-    fontWeight: "bold",
     opacity: 1,
-    color: constants.LightTheme.secondary,
   },
 });
 
