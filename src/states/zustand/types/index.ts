@@ -21,7 +21,4 @@ export type TagType = typeof TagsEnum[keyof typeof TagsEnum];
 export interface ResumePost {
   createdAt: string;
   id: string;
-  emotion: EmotionStatus | null;
-  tags: TagType[];
-  note: string | null;
 }
