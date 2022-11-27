@@ -1,9 +1,9 @@
 export const LightTheme = {
-    primary: '#0e9577',
-    secondary: '#04dead',
+    primary: '#fbfae1',
+    secondary: '#220e24',
     secondaryBorder: '#9B9090',
-    terciary: '#f1efb9',
-    last: '#fbfae1'
+    terciary: '#04dead',
+    last: '#0e9577'
 }
 
 export const DarkTheme:typeof LightTheme = {
