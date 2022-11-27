@@ -1,6 +1,7 @@
 import { View } from "react-native";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import DailyContainer from "./components/dailyContainer";
+import FloatingButtons from "./components/floatingButtons";
 import Header from "./components/header";
 import HomeCalendar from "./components/homeCalendar";
 import InsertDailyButton from "./components/insertDailyButton";
@@ -14,10 +15,10 @@ const Home = () => {
       <View style={styles.calendar}>
         <HomeCalendar />
       </View>
-      <InsertDailyButton />
       <AppLayoutScrollView>
         <DailyContainer />
       </AppLayoutScrollView>
+      <FloatingButtons />
     </View>
   );
 };
