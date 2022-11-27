@@ -1,17 +1,31 @@
-import { StyleSheet, View } from "react-native";
+import { useCallback } from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AppLayout from "../../component/AppLayout";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import AppText from "../../component/AppText";
 import SaveButton from "../../component/SaveButton";
 import { FontSize } from "../../constants/metrics";
-import { TagsEnum } from "../../states/zustand/types";
+import useAppNavigation from "../../navigation/hooks/useAppNavigation";
+import { FlowEnum } from "../../navigation/types";
+import useUserResumePost from "../../states/zustand/hooks/useUserResumePost";
+import { EmotionalStatusEnum, TagsEnum } from "../../states/zustand/types";
 import TagsContainer from "../home/components/tagsContainer";
 import useSmthElse from "../home/hooks/useSmthElsePost";
 import EmotionalStateSelector from "./components/emotionalStateSelector";
 
 const DailyResumePost = () => {
   const { handleSmthElseInputChange, smthElse } = useSmthElse();
+  const { navigation } = useAppNavigation();
+  const { addNewPost } = useUserResumePost();
+
+  const handlePress = useCallback(() => {
+    addNewPost({
+      emotion: EmotionalStatusEnum.HAPPY,
+      // tags: []
+    });
+    navigation.navigate(FlowEnum.DailyResumePost);
+  }, []);
 
   return (
     <AppLayout>
@@ -39,10 +53,10 @@ const DailyResumePost = () => {
                 placeholderTextColor={'grey'}
                 multiline={true}
               />
-          <View style={styles.saveButton}>
+          <TouchableOpacity style={styles.saveButton} onPress={handlePress}>
             <SaveButton/>
 
-          </View>
+          </TouchableOpacity>
         </View>
       </AppLayoutScrollView>
     </AppLayout>
