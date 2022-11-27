@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   },
   container: {
     flexDirection: "column",
-    backgroundColor: constants.LightTheme.secondary,
+    backgroundColor: constants.LightTheme.instantCardBackground,
     borderColor: constants.LightTheme.terciary,
     borderRadius: 20,
     paddingVertical: 5,

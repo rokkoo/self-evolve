@@ -1,8 +1,9 @@
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import ReactNativeCalendarStrip from "react-native-calendar-strip";
 import moment from "moment";
 import useHomeCalendar from "./useHomeCalendar";
 import useHomeState from "../../state/useHomeState";
+import constants from "../../../../constants";
 
 export default function HomeCalendar() {
   const { datesWhitelist, handleDateChange } = useHomeCalendar();
@@ -16,18 +17,18 @@ export default function HomeCalendar() {
           type: "border",
           duration: 200,
           borderWidth: 1,
-          borderHighlightColor: "white",
+          borderHighlightColor: constants.LightTheme.primary,
         }}
-        style={{ height: "100%", paddingVertical: 5, paddingBottom: 20 }}
-        calendarHeaderStyle={{ color: "white", paddingBottom: 8 }}
+        style={styles.calendar}
+        calendarHeaderStyle={styles.calendarHeader}
         headerText="2022"
-        calendarColor={"#7743CE"}
-        dateNumberStyle={{ color: "white" }}
-        dateNameStyle={{ color: "white" }}
-        highlightDateNumberStyle={{ color: "yellow" }}
-        highlightDateNameStyle={{ color: "yellow" }}
-        disabledDateNameStyle={{ color: "grey" }}
-        disabledDateNumberStyle={{ color: "grey" }}
+        calendarColor={constants.LightTheme.last}
+        dateNumberStyle={styles.dateNumber}
+        dateNameStyle={styles.dateName}
+        highlightDateNumberStyle={styles.highlightDateNumber}
+        highlightDateNameStyle={styles.highlightDateName}
+        disabledDateNameStyle={styles.disabledDateName}
+        disabledDateNumberStyle={styles.disabledDateNumber}
         datesWhitelist={datesWhitelist}
         // datesBlacklist={datesBlacklist}
         // iconLeft={require("./img/left-arrow.png")}
@@ -37,3 +38,38 @@ export default function HomeCalendar() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  calendar: { 
+    height: "100%",
+    paddingVertical: 5,
+    paddingBottom: 20 
+  },
+  dateNumber:{
+    color: 'white',
+    opacity: 1,
+  },
+  dateName: {
+    color: 'white',
+    opacity: 1,
+  },
+  calendarHeader:{
+    color: 'white',
+    paddingBottom: 8,
+  },
+  highlightDateNumber: {
+    color: 'white',
+  },
+  disabledDateNumber: {
+    color: constants.LightTheme.secondary,
+    opacity: 0.7,
+  },
+  highlightDateName: {
+    color: constants.LightTheme.terciary,
+
+  },
+  disabledDateName: {
+    color: constants.LightTheme.terciary,
+    opacity: 0.7,
+  }
+})

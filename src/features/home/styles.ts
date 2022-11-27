@@ -15,11 +15,12 @@ export const styles = StyleSheet.create({
       justifyContent: "space-evenly",
     },
     calendar: {
-      height: "10%",
+      height: "11%",
       fontSize: 16,
       alignContent: "center",
       justifyContent: "center",
-      backgroundColor: constants.LightTheme.secondary,
+      backgroundColor: constants.LightTheme.calendarShadow,
+      paddingVertical: 5,
     },
     saraut: {
       

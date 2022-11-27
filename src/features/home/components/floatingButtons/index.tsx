@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
-    tintColor: LightTheme.secondary,
+    tintColor: LightTheme.floating,
   },
 });
 
