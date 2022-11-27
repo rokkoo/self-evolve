@@ -3,29 +3,27 @@ import { useMemo, useCallback } from "react";
 import { StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import useUserResumePost from "../../../../states/zustand/hooks/useUserResumePost";
-import {
-  EmotionalStatusEnum,
-  TagsEnum,
-} from "../../../../states/zustand/types";
+import useHomeState from "../../state/useHomeState";
 import DailyResume from "../dailyResume";
 import InstantResume from "../instantResume";
 
 const DailyContainer = () => {
+  const { homeDate } = useHomeState();
   const { getInstantPostsResumeFromDate, resumePost } = useUserResumePost();
 
   const instantPosts = useMemo(() => {
-    const date = moment().toISOString();
-
+    const date = homeDate ?? moment().toISOString();
     const posts = getInstantPostsResumeFromDate(date);
 
     return posts;
-  }, [getInstantPostsResumeFromDate]);
+  }, [getInstantPostsResumeFromDate, homeDate]);
 
   const renderResumePost = useCallback(() => {
     if (!resumePost) return null;
 
     return <DailyResume emotionalStatus={resumePost.emotion} />;
   }, [resumePost]);
+
   return (
     <View style={styles.container}>
       {renderResumePost()}

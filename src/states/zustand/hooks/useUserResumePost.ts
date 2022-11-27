@@ -11,23 +11,24 @@ const useUserResumePost = () => {
 
   const getInstantPostsResumeFromDate = useCallback(
     (date: string) => {
+      const day = moment(date).get("day");
       const month = moment(date).get("month");
       const year = moment(date).get("year");
 
       const posts = state.posts.filter((post) => {
-        const postDay = moment(post.createdAt);
-        const postMonth = postDay.get("month");
-        const postYear = postDay.get("year");
+        const postDate = moment(post.createdAt);
+        const postDay = postDate.get("day");
+        const postMonth = postDate.get("month");
+        const postYear = postDate.get("year");
 
-        if (post.type === PostTypeEnum.RESUME) {
+        const isDatePost =
+          postDay === day && postMonth === month && postYear === year;
+
+        if (isDatePost && post.type === PostTypeEnum.RESUME) {
           setResumePost(post);
         }
 
-        return (
-          postMonth === month &&
-          postYear === year &&
-          post.type === PostTypeEnum.INSTAN
-        );
+        return isDatePost && post.type === PostTypeEnum.INSTAN;
       });
 
       return posts;
