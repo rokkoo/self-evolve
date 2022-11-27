@@ -9,6 +9,7 @@ interface DailyResumeState {
   addEmotion: (emotion: EmotionType) => void;
   toggleTag: (tag: TagType) => void;
   addNote: (note: string) => void;
+  resetState: () => void;
 }
 
 const useDailyResumeState = create<DailyResumeState>((set, get) => {
@@ -38,6 +39,16 @@ const useDailyResumeState = create<DailyResumeState>((set, get) => {
     },
     addNote(note) {
       set((prev) => ({ ...prev, note }));
+    },
+    resetState() {
+      set((prev) => {
+        return {
+          ...prev,
+          emotion: null,
+          tags: [],
+          note: null,
+        };
+      });
     },
   };
 });
