@@ -36,7 +36,7 @@ function AppStack() {
         name={FlowEnum.DailyResumePost}
         component={DailyResumePost}
       />
-    </Stack.Navigator>
+    </Stack.Navigator>  
   );
 }
 

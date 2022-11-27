@@ -1,14 +1,14 @@
 import { StyleSheet, View } from "react-native";
+import { EmotionalStatusEnum } from "../../types";
 import DailyResume from "../dailyResume";
-import InstantResume, { EmotionalStatusEnum } from "../instantResume";
+import InstantResume from "../instantResume";
 import { TagsEnum } from "../tagsContainer/types";
 
 const DailyContainer = () => {
   return (
     <View style={styles.container}>
       
-
-      <DailyResume />
+      <DailyResume emotionalStatus={EmotionalStatusEnum.NEUTRAL} />
 
       <InstantResume
         text="Me fui a jugar al futbol con mi primo y me pelee con el."
@@ -20,7 +20,7 @@ const DailyContainer = () => {
       <InstantResume
         text="He ido a comprar el pan."
         createdAt="17:56 PM"
-        emotionalStatus={EmotionalStatusEnum.HAPPY}
+        emotionalStatus={EmotionalStatusEnum.SAD}
         tags={[
           TagsEnum.DOSPORT,
           TagsEnum.TAKEANAP,

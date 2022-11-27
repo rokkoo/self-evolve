@@ -27,7 +27,7 @@ const Home = () => {
       <View style={styles.calendar}>
         <HomeCalendar />
       </View>
-      <InsertDailyButton />
+      <InsertDailyButton/>
       <AppLayoutScrollView>
         <DailyContainer />
       </AppLayoutScrollView>

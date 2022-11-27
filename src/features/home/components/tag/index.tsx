@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         paddingHorizontal:10,
         paddingVertical: 3,
+        paddingRight: 20,
         marginVertical: 5,
         borderRadius: 5,
         borderColor: constants.LightTheme.secondaryBorder,

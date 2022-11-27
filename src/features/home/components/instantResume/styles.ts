@@ -23,15 +23,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         width: "30%",
     },
-    tagsbox: {
-        width: "90%",
-        margin: 10,
-        backgroundColor: '#D9CACA',
-        borderColor: constants.LightTheme.last,
-        padding: 5,
-        borderRadius: 10,
-        display: 'flex',
-    },
     text: {
         fontSize: 16,
         marginHorizontal: 20,
@@ -47,7 +38,6 @@ export const styles = StyleSheet.create({
         width: 80,
         height: 80,
         borderRadius:20,
-        backgroundColor: constants.LightTheme.last,
         margin: 5,
     }
 })
