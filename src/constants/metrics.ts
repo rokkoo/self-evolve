@@ -1,6 +1,6 @@
 export const LayoutMetrics = {
-  horizontalSpacing: 20,
-  verticalSpacing: 32,
+  verticalSpacing: 12,
+  horizontalSpacing: 21,
 };
 
 export const FontSize = {
