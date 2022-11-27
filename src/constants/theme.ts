@@ -9,6 +9,7 @@ export const LightTheme = {
 export const DarkTheme:typeof LightTheme = {
     primary: '',
     secondary: '',
+    secondaryBorder: '',
     terciary: '',
     last: '',
 }
