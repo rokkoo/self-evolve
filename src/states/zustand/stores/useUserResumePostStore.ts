@@ -32,6 +32,7 @@ const useUserResumePostStore = create<InitialState>(
       posts: [],
 
       addNewPost: (post) => {
+        // UTC time
         const createdAt = moment().toISOString();
 
         console.log({ createdAt });

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Image, Text, View } from "react-native";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import useUserData from "../../states/zustand/hooks/useUserData";
+import useUserResumePost from "../../states/zustand/hooks/useUserResumePost";
 import DailyContainer from "./components/dailyContainer";
 import Header from "./components/header";
 import HomeCalendar from "./components/homeCalendar";
@@ -10,6 +11,9 @@ import { styles } from "./styles";
 
 const Home = () => {
   const { user } = useUserData();
+  const { posts } = useUserResumePost();
+
+  console.log({ posts });
 
   const saraut = useMemo(() => {
     if (user.name != "") return `¡Hola, ${user.name}!`;
@@ -27,7 +31,7 @@ const Home = () => {
       <View style={styles.calendar}>
         <HomeCalendar />
       </View>
-      <InsertDailyButton/>
+      <InsertDailyButton />
       <AppLayoutScrollView>
         <DailyContainer />
       </AppLayoutScrollView>
