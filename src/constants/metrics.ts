@@ -14,4 +14,5 @@ export const FontSize = {
 export enum FontFamilys {
   REGULAR = "Author-Regular",
   BOLD = "Author-Bold",
+  SEMI = "Author-Semi",
 }

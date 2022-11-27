@@ -7,6 +7,7 @@ interface Props {
   fontSize?: typeof FontSize[keyof typeof FontSize];
   style?: StyleProp<TextStyle>;
   bold?: boolean;
+  semi?: boolean;
 }
 
 const AppText: React.FC<Props> = ({
@@ -18,6 +19,10 @@ const AppText: React.FC<Props> = ({
   const fontFamily = useMemo(() => {
     if (props.bold) {
       return FontFamilys.BOLD;
+    }
+
+    if (props.semi) {
+      return FontFamilys.SEMI;
     }
 
     return FontFamilys.REGULAR;

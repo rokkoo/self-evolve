@@ -9,6 +9,7 @@ const useSplashScreen = () => {
   const [fontsLoaded] = useFonts({
     [FontFamilys.REGULAR]: require("../../assets/fonts/Author-Regular.otf"),
     [FontFamilys.BOLD]: require("../../assets/fonts/Author-Bold.otf"),
+    [FontFamilys.SEMI]: require("../../assets/fonts/Author-Semibold.otf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
