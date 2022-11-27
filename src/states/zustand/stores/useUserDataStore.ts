@@ -1,9 +1,9 @@
 import create, { StateCreator } from "zustand";
 import { persist, PersistOptions } from "zustand/middleware";
 
-import { User } from "./types";
-import LocalStorage from "../../storage/instances/localStorage";
-import { StorageIdEnum } from "../../storage/types";
+import { User } from "../types";
+import LocalStorage from "../../../storage/instances/localStorage";
+import { StorageIdEnum } from "../../../storage/types";
 
 const localStorage = new LocalStorage(StorageIdEnum.USER_INFO);
 
