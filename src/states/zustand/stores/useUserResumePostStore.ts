@@ -5,19 +5,20 @@ import { v4 as uuidv4 } from "uuid";
 import LocalStorage from "../../../storage/instances/localStorage";
 import { StorageIdEnum } from "../../../storage/types";
 
-import { EmotionStatus, ResumePost, TagType } from "../types";
+import { EmotionType, ResumePost, TagType } from "../types";
 import moment from "moment";
 
 const localStorage = new LocalStorage(StorageIdEnum.USER_POSTS);
 
 interface Post {
-  emotion: EmotionStatus | null;
-  tags?: TagType[];
-  note?: string | null;
+  emotion: EmotionType;
+  tags: TagType[];
+  note: string;
 }
 
+type PostType = ResumePost & Post;
 interface InitialState {
-  posts: ResumePost[];
+  posts: PostType[];
   addNewPost: (post: Post) => void;
 }
 

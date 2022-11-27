@@ -4,7 +4,7 @@ import { EmotionType, TagType } from "../../../states/zustand/types";
 interface DailyResumeState {
   emotion: EmotionType | null;
   tags: TagType[];
-  note: string | null;
+  note: string;
 
   addEmotion: (emotion: EmotionType) => void;
   toggleTag: (tag: TagType) => void;
@@ -16,7 +16,7 @@ const useDailyResumeState = create<DailyResumeState>((set, get) => {
   return {
     emotion: null,
     tags: [],
-    note: null,
+    note: "",
 
     addEmotion(emotion) {
       set((prev) => ({ ...prev, emotion }));
@@ -24,8 +24,6 @@ const useDailyResumeState = create<DailyResumeState>((set, get) => {
     toggleTag(tag) {
       set((prev) => {
         const existTag = prev.tags.some((oldTags) => oldTags === tag);
-
-        console.log({ existTag });
 
         if (existTag) {
           const newTags = prev.tags.filter((oldTags) => oldTags !== tag);
@@ -46,7 +44,7 @@ const useDailyResumeState = create<DailyResumeState>((set, get) => {
           ...prev,
           emotion: null,
           tags: [],
-          note: null,
+          note: "",
         };
       });
     },
