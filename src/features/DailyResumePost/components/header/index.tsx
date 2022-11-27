@@ -1,22 +1,26 @@
 import { useCallback } from "react";
-import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
-import { FlowEnum } from "../../../../navigation/types";
+import { View, Image, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { LayoutMetrics } from "../../../../constants/metrics";
 import useAppNavigation from "../../../../navigation/hooks/useAppNavigation";
+import { FlowEnum } from "../../../../navigation/types";
 
 const Header = () => {
   const { navigation } = useAppNavigation();
 
   const handleSettingsPress = useCallback(() => {
-    navigation.navigate(FlowEnum.DailyResumePost);
+    navigation.goBack();
   }, []);
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={handleSettingsPress}>
+      <TouchableOpacity
+        onPress={handleSettingsPress}
+        style={styles.imageContainer}
+      >
         <Image
-          source={require("../../../../../assets/icons/settings.png")}
-          style={styles.settingsImage}
+          source={require("../../../../../assets/icons/close.png")}
+          style={styles.image}
         />
       </TouchableOpacity>
     </View>
@@ -25,11 +29,10 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: LayoutMetrics.verticalSpacing,
-    paddingHorizontal: LayoutMetrics.horizontalSpacing,
-    alignItems: "flex-end",
+    alignItems: "flex-start",
   },
-  settingsImage: {
+  imageContainer: {},
+  image: {
     width: 28,
     height: 28,
   },
