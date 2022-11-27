@@ -1,4 +1,5 @@
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import constants from "../../../../constants";
 import Tag from "../tag";
 import { TagType } from "./types";
 
@@ -25,6 +26,12 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "center",
+        width: "90%",
+        margin: 10,
+        backgroundColor: '#D9CACA',
+        borderColor: constants.LightTheme.last,
+        padding: 5,
+        borderRadius: 10,
     }
 })
 
