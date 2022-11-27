@@ -3,6 +3,7 @@ import { Image, Text, View } from "react-native";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import useUserData from "../../states/zustand/hooks/useUserData";
 import DailyContainer from "./components/dailyContainer";
+import Header from "./components/header";
 import HomeCalendar from "./components/homeCalendar";
 import InsertDailyButton from "./components/insertDailyButton";
 import { styles } from "./styles";
@@ -17,6 +18,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
+      <Header />
       <View style={styles.top}>
         <Text>{saraut}</Text>
         <View style={styles.verticleLine}></View>
@@ -27,8 +29,7 @@ const Home = () => {
       </View>
       <InsertDailyButton />
       <AppLayoutScrollView>
-
-      <DailyContainer />
+        <DailyContainer />
       </AppLayoutScrollView>
     </View>
   );
