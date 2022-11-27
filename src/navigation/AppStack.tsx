@@ -13,8 +13,6 @@ const Stack = createNativeStackNavigator();
 function AppStack() {
   const { onboardingPasses, enablePasscode } = useUserData();
 
-  console.log({ d: onboardingPasses && enablePasscode });
-
   const initialRouteName = useMemo(() => {
     if (onboardingPasses && enablePasscode) {
       return FlowEnum.SignUp;

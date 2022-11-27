@@ -13,6 +13,7 @@ const Header = () => {
 
   const saraut = useMemo(() => {
     if (user.name != "") return `¡Hola, ${user.name}!`;
+
     return "¡Hola!";
   }, [user]);
 
@@ -23,7 +24,9 @@ const Header = () => {
   return (
     <View style={styles.container}>
       <View style={styles.containerSaraut}>
-        <AppText fontSize={FontSize.l}>{saraut}</AppText>
+        <AppText fontSize={FontSize.l} semi>
+          {saraut}
+        </AppText>
       </View>
       <View style={styles.containerSettings}>
         <TouchableOpacity onPress={handleSettingsPress}>

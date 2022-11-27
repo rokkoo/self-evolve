@@ -15,8 +15,6 @@ const DailyContainer = () => {
     const date = homeDate ?? moment().toISOString();
     const posts = getInstantPostsResumeFromDate(date);
 
-    console.log(posts)
-
     return posts;
   }, [getInstantPostsResumeFromDate, homeDate]);
 

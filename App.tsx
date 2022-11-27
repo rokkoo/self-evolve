@@ -13,8 +13,6 @@ export default function App() {
     return null;
   }
 
-  console.log({ fontsLoaded });
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <AppNavigationContainer />
