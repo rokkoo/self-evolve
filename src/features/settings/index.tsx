@@ -4,6 +4,9 @@ import AppLayout from "../../component/AppLayout";
 import AppLayoutScrollView from "../../component/AppLayoutScrollView";
 import AppText from "../../component/AppText";
 import { FontSize } from "../../constants/metrics";
+import useAuthentication from "../../hooks/useAuthentication";
+import useUserData from "../../states/zustand/hooks/useUserData";
+import AuthenticationView from "./components/AuthenticationView";
 import EmailView from "./components/emailView";
 import NameView from "./components/nameView";
 
@@ -16,6 +19,7 @@ const Settings = () => {
         <View style={styles.container}>
           <NameView />
           <EmailView />
+          <AuthenticationView />
         </View>
       </AppLayoutScrollView>
     </AppLayout>

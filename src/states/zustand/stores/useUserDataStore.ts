@@ -10,8 +10,11 @@ const localStorage = new LocalStorage(StorageIdEnum.USER_INFO);
 interface InitialState {
   user: User;
   onboardingPasses: boolean;
+  enablePasscode: boolean;
+
   saveUserData(user: User): void;
   onboardingSeen: () => void;
+  togglePasscode: () => void;
 }
 
 type MyPersist = (
@@ -25,6 +28,7 @@ const useUserStore = create<InitialState>(
       user: {
         name: "",
       },
+      enablePasscode: false,
       onboardingPasses: false,
       saveUserData: (user) => {
         set((prev) => {
@@ -33,6 +37,14 @@ const useUserStore = create<InitialState>(
       },
       onboardingSeen: () => {
         set({ onboardingPasses: true });
+      },
+      togglePasscode() {
+        set((prev) => {
+          return {
+            ...prev,
+            enablePasscode: !prev.enablePasscode,
+          };
+        });
       },
     }),
     {

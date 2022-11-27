@@ -6,6 +6,7 @@ export enum FlowEnum {
   Home = "Home",
   DailyResumePost = "DailyResumePost",
   Settings = "Settings",
+  SignUp = "SignUp",
 }
 
 export type FlowName = typeof FlowEnum[keyof typeof FlowEnum];
@@ -15,6 +16,7 @@ export type StackParamList = {
   [FlowEnum.Home]: undefined;
   [FlowEnum.DailyResumePost]: { type: PostType };
   [FlowEnum.Settings]: undefined;
+  [FlowEnum.SignUp]: undefined;
 };
 
 export type AppNavigationProps = NativeStackNavigationProp<StackParamList>;
