@@ -42,6 +42,6 @@ export const styles = StyleSheet.create({
         margin: 5,
     },
     tagsBox: {
-        
+        paddingHorizontal: 30,
     }
 })
