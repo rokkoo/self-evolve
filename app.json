@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.rokko.selfevolve",
@@ -28,14 +30,16 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.rokko.selfevolve",
-      "permissions": ["VIBRATE"]
+      "permissions": [
+        "VIBRATE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "4ab4184a-e7a0-41f2-a871-81ee3c5f3b51"
+        "projectId": "5aeec897-9e4c-4e64-8668-b35501df91fc"
       }
     }
   }
